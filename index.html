@@ -7,12 +7,14 @@
   <meta name="description" content="A Scale Company estrutura aquisição previsível para advogados que querem crescer com método, clareza e posicionamento. Mais de 200 escritórios atendidos.">
 
   <!-- Preload hero image -->
-  <link rel="preload" as="image" href="assets/desktop.png" media="(min-width: 769px)">
-  <link rel="preload" as="image" href="assets/mobile.png" media="(max-width: 768px)">
+  <link rel="preload" as="image" href="assets/desktop.webp" media="(min-width: 769px)">
+  <link rel="preload" as="image" href="assets/mobile.webp" media="(max-width: 768px)">
 
-  <!-- Inter Font -->
+  <!-- External resource preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.youtube.com">
+  <link rel="preconnect" href="https://hook.us1.make.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
@@ -24,8 +26,8 @@
   <section class="hero" id="hero">
     <div class="hero__image-wrapper">
       <picture>
-        <source srcset="assets/mobile.png" media="(max-width: 768px)">
-        <img src="assets/desktop.png" alt="" class="hero__image" width="1920" height="1080" fetchpriority="high">
+        <source srcset="assets/mobile.webp" media="(max-width: 768px)">
+        <img src="assets/desktop.webp" alt="" class="hero__image" width="1920" height="1080" fetchpriority="high" decoding="async">
       </picture>
       <div class="hero__overlay"></div>
     </div>
@@ -114,16 +116,16 @@
 
       <div class="sticky-stack">
         <div class="sticky-card">
-          <img src="imgs-dores/dependencia-indicacao.png" alt="Dependência de Indicação" loading="lazy">
+          <img src="imgs-dores/.webp" alt="Dependência de Indicação" loading="lazy">
         </div>
         <div class="sticky-card">
-          <img src="imgs-dores/agenda-instavel.png" alt="Agenda Instável" loading="lazy">
+          <img src="imgs-dores/.webp" alt="Agenda Instável" loading="lazy">
         </div>
         <div class="sticky-card">
-          <img src="imgs-dores/marketing-sem-metodo.png" alt="Marketing Sem Método" loading="lazy">
+          <img src="imgs-dores/.webp" alt="Marketing Sem Método" loading="lazy">
         </div>
         <div class="sticky-card">
-          <img src="imgs-dores/crescimento-preso-ao-socio.png" alt="Crescimento Preso ao Sócio" loading="lazy">
+          <img src="imgs-dores/.webp" alt="Crescimento Preso ao Sócio" loading="lazy">
         </div>
       </div>
 
@@ -153,7 +155,7 @@
 
   <!-- ========== MÉTODO ========== -->
   <section class="section section-with-bg" id="metodo">
-    <div class="section-bg-element" style="background-image: url('assets/9d6c9ee3-4e24-4fab-a0c2-e2ce55aaa2bf.png');"></div>
+    <div class="section-bg-element" style="background-image: url('assets/bg.webp');"></div>
     <div class="container">
       <div class="section-header section-header--left reveal">
         <h2 class="section-header__title">
@@ -228,10 +230,10 @@
         <!-- Esquerda: Vídeos -->
         <div class="videos__grid reveal">
           <div class="video-wrapper" data-video-id="hZxR3DadbTg">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/hZxR3DadbTg" title="Depoimento - Bichara" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/hZxR3DadbTg" title="Depoimento - Bichara" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
           <div class="video-wrapper reveal-delay-1" data-video-id="4V0ArJKXb-4">
-            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/4V0ArJKXb-4" title="Depoimento - Vitor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/4V0ArJKXb-4" title="Depoimento - Vitor" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
           </div>
         </div>
 
@@ -302,7 +304,7 @@
       <div class="team-grid">
         <div class="team-member reveal">
           <div class="team-member__photo-wrap">
-            <img src="supervisores/image 60.png" alt="Leonardo Carmo" class="team-member__photo" loading="lazy">
+            <img src="supervisores/.webp" alt="Leonardo Carmo" class="team-member__photo" loading="lazy">
           </div>
           <p class="team-member__name">Leonardo Carmo</p>
           <p class="team-member__role">CMO</p>
@@ -310,7 +312,7 @@
 
         <div class="team-member reveal reveal-delay-1">
           <div class="team-member__photo-wrap">
-            <img src="supervisores/image 61.png" alt="Matheus Malaquias" class="team-member__photo" loading="lazy">
+            <img src="supervisores/.webp" alt="Matheus Malaquias" class="team-member__photo" loading="lazy">
           </div>
           <p class="team-member__name">Matheus Malaquias</p>
           <p class="team-member__role">Head de Criação</p>
@@ -318,7 +320,7 @@
 
         <div class="team-member reveal reveal-delay-2">
           <div class="team-member__photo-wrap">
-            <img src="supervisores/image 62.png" alt="Isabella Trannin" class="team-member__photo" loading="lazy">
+            <img src="supervisores/.webp" alt="Isabella Trannin" class="team-member__photo" loading="lazy">
           </div>
           <p class="team-member__name">Isabella Trannin</p>
           <p class="team-member__role">Account Manager</p>
@@ -326,7 +328,7 @@
 
         <div class="team-member reveal reveal-delay-3">
           <div class="team-member__photo-wrap">
-            <img src="supervisores/image 63.png" alt="Pedro Costa" class="team-member__photo" loading="lazy">
+            <img src="supervisores/.webp" alt="Pedro Costa" class="team-member__photo" loading="lazy">
           </div>
           <p class="team-member__name">Pedro Costa</p>
           <p class="team-member__role">Diretor de Projetos</p>
@@ -334,7 +336,7 @@
 
         <div class="team-member reveal reveal-delay-4">
           <div class="team-member__photo-wrap">
-            <img src="supervisores/image_65.png" alt="Pedro Henrique" class="team-member__photo" loading="lazy">
+            <img src="supervisores/.webp" alt="Pedro Henrique" class="team-member__photo" loading="lazy">
           </div>
           <p class="team-member__name">Pedro Henrique</p>
           <p class="team-member__role">Diretor de Projetos</p>
@@ -345,7 +347,7 @@
 
   <!-- ========== CTA FINAL ========== -->
   <section class="cta-final section section-with-bg" id="cta-final">
-    <div class="section-bg-element" style="background-image: url('assets/9d6c9ee3-4e24-4fab-a0c2-e2ce55aaa2bf%20copy.png');"></div>
+    <div class="section-bg-element" style="background-image: url('assets/bg.webp');"></div>
     <div class="container">
       <div class="reveal">
         <h2 class="cta-final__title">
@@ -422,9 +424,9 @@
 
         <!-- Step 3: Instagram -->
         <div class="popup-step" data-step="3">
-          <label class="popup-label" for="lead-instagram">@ do Instagram do advogado ou do escritório</label>
+          <label class="popup-label" for="lead-instagram">@ do Instagram do escritório ou advogado <span style="opacity:0.7; font-size: 0.9em;">(Opcional)</span></label>
           <input class="popup-input" type="text" id="lead-instagram" placeholder="@seuescritorio" autocomplete="off">
-          <p class="popup-hint">Informe como aparece no Instagram (com ou sem @).</p>
+          <p class="popup-hint">Informe como aparece no Instagram. Se não lembrar agora pode pular, mas é recomendado.</p>
           <div class="popup-actions popup-actions--split">
             <button class="popup-btn popup-btn--back" id="btn-back-3">Voltar</button>
             <button class="popup-btn popup-btn--next" id="btn-next-3">
@@ -566,7 +568,7 @@
 
       const images = [];
       for (let i = 1; i <= 19; i++) {
-        images.push(`depoimentos-whatsapp/testimonial-${i.toString().padStart(2, '0')}.png`);
+        images.push(`depoimentos-whatsapp/testimonial-${i.toString().padStart(2, '0')}.webp`);
       }
 
       let items = images.map((src, i) => ({ id: Math.random(), src }));
