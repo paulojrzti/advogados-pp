@@ -1593,24 +1593,23 @@ button {
 
 /* --- Team Carousel (Mobile) --- */
 @media (max-width: 768px) {
-  .team-grid {
-    display: flex;
-    gap: 20px;
-    overflow: hidden;
+  #supervisores .container {
     position: relative;
+    overflow: hidden;
+  }
+
+  .team-grid {
+    display: flex !important;
+    gap: 20px;
     width: max-content;
+    grid-template-columns: none !important;
   }
 
   .team-member {
     flex: 0 0 160px;
   }
 
-  /* Edge fade overlay on the section */
-  #supervisores .container {
-    position: relative;
-    overflow: hidden;
-  }
-
+  /* Edge fade overlay */
   #supervisores .container::before,
   #supervisores .container::after {
     content: '';
