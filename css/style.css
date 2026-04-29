@@ -1435,6 +1435,7 @@ button {
 
   body {
     font-size: 16px;
+    overflow-x: hidden;
   }
 
   .container {
@@ -1457,7 +1458,7 @@ button {
   }
 
   .hero__headline {
-    font-size: clamp(28px, 7vw, 40px);
+    font-size: clamp(32px, 8vw, 44px);
     background: var(--gradient-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1511,6 +1512,31 @@ button {
 
   .team-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Mobile video overlay to intercept clicks above iframe */
+  .video-wrapper[data-video-id] {
+    position: relative;
+    cursor: pointer;
+  }
+
+  .video-wrapper[data-video-id]::after {
+    content: '▶';
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    color: rgba(255,255,255,0.9);
+    background: rgba(0,0,0,0.3);
+    border-radius: var(--radius-lg);
+    transition: background 0.2s;
+  }
+
+  .video-wrapper[data-video-id]:active::after {
+    background: rgba(0,0,0,0.5);
   }
 }
 
@@ -1572,7 +1598,6 @@ button {
     gap: 20px;
     overflow: hidden;
     position: relative;
-    animation: teamScroll 20s linear infinite;
     width: max-content;
   }
 

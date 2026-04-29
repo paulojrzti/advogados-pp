@@ -696,6 +696,8 @@
           const clone = item.cloneNode(true);
           teamGrid.appendChild(clone);
         });
+        // Start animation after cloning
+        teamGrid.style.animation = 'teamScroll 20s linear infinite';
       }
     });
   </script>
