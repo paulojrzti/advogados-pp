@@ -4,7 +4,9 @@
    ============================================ */
 
 /* --- CSS Reset & Custom Properties --- */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -31,7 +33,7 @@
 
   --gradient-accent: linear-gradient(120deg, #00d1ff 0%, #3aa0ff 25%, #1f4fff 50%, #1630df 75%, #00d1ff 100%);
   --gradient-text: linear-gradient(135deg, #e2e2e2 0%, #ffffff 50%, #9e9e9e 100%);
-  --gradient-hero-overlay: linear-gradient(to top, var(--color-bg) 0%, rgba(9,11,16,0.85) 30%, rgba(9,11,16,0.4) 60%, rgba(9,11,16,0.15) 100%);
+  --gradient-hero-overlay: linear-gradient(to top, var(--color-bg) 0%, rgba(9, 11, 16, 0.85) 30%, rgba(9, 11, 16, 0.4) 60%, rgba(9, 11, 16, 0.15) 100%);
 
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -70,7 +72,7 @@ body {
   line-height: 1.6;
   color: var(--color-text-primary);
   background-color: var(--color-bg);
-  background-image: 
+  background-image:
     radial-gradient(circle at 85% 10%, rgba(22, 48, 223, 0.06) 0%, transparent 40vw),
     radial-gradient(circle at 15% 90%, rgba(0, 186, 255, 0.04) 0%, transparent 45vw);
   background-attachment: fixed;
@@ -281,14 +283,12 @@ button {
   border-radius: 360px;
   color: var(--shiny-cta-fg);
   background: linear-gradient(var(--shiny-cta-bg), var(--shiny-cta-bg)) padding-box,
-    conic-gradient(
-      from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
+    conic-gradient(from calc(var(--gradient-angle) - var(--gradient-angle-offset)),
       transparent,
       var(--shiny-cta-highlight) var(--gradient-percent),
       var(--gradient-shine) calc(var(--gradient-percent) * 2),
       var(--shiny-cta-highlight) calc(var(--gradient-percent) * 3),
-      transparent calc(var(--gradient-percent) * 4)
-    ) border-box;
+      transparent calc(var(--gradient-percent) * 4)) border-box;
   box-shadow: inset 0 0 0 1px var(--shiny-cta-bg-subtle);
   transition: var(--transition);
   transition-property: --gradient-angle-offset, --gradient-percent, --gradient-shine;
@@ -321,19 +321,15 @@ button {
   --space: calc(var(--position) * 2);
   width: var(--size);
   height: var(--size);
-  background: radial-gradient(
-    circle at var(--position) var(--position),
-    white calc(var(--position) / 4),
-    transparent 0
-  ) padding-box;
+  background: radial-gradient(circle at var(--position) var(--position),
+      white calc(var(--position) / 4),
+      transparent 0) padding-box;
   background-size: var(--space) var(--space);
   background-repeat: space;
-  mask-image: conic-gradient(
-    from calc(var(--gradient-angle) + 45deg),
-    black,
-    transparent 10% 90%,
-    black
-  );
+  mask-image: conic-gradient(from calc(var(--gradient-angle) + 45deg),
+      black,
+      transparent 10% 90%,
+      black);
   border-radius: inherit;
   opacity: 0.4;
   z-index: -1;
@@ -344,12 +340,10 @@ button {
   --animation: shimmer linear infinite;
   width: 100%;
   aspect-ratio: 1;
-  background: linear-gradient(
-    -50deg,
-    transparent,
-    var(--shiny-cta-highlight),
-    transparent
-  );
+  background: linear-gradient(-50deg,
+      transparent,
+      var(--shiny-cta-highlight),
+      transparent);
   mask-image: radial-gradient(circle at bottom, transparent 40%, black);
   opacity: 0.6;
 }
@@ -414,9 +408,12 @@ button {
 }
 
 @keyframes breathe {
-  from, to {
+
+  from,
+  to {
     scale: 1;
   }
+
   50% {
     scale: 1.2;
   }
@@ -439,8 +436,8 @@ button {
 
 .btn-secondary:hover {
   color: var(--color-text-primary);
-  border-color: rgba(255,255,255,0.15);
-  background: rgba(255,255,255,0.04);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .btn-secondary:focus-visible {
@@ -460,8 +457,13 @@ button {
 }
 
 @keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
 }
 
 .text-white {
@@ -523,8 +525,13 @@ button {
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* --- Section Headers --- */
@@ -595,10 +602,25 @@ button {
 }
 
 /* Efeito de empilhamento estilo cartas */
-.sticky-card:nth-child(1) { top: 80px; z-index: 1; }
-.sticky-card:nth-child(2) { top: 100px; z-index: 2; }
-.sticky-card:nth-child(3) { top: 120px; z-index: 3; }
-.sticky-card:nth-child(4) { top: 140px; z-index: 4; }
+.sticky-card:nth-child(1) {
+  top: 80px;
+  z-index: 1;
+}
+
+.sticky-card:nth-child(2) {
+  top: 100px;
+  z-index: 2;
+}
+
+.sticky-card:nth-child(3) {
+  top: 120px;
+  z-index: 3;
+}
+
+.sticky-card:nth-child(4) {
+  top: 140px;
+  z-index: 4;
+}
 
 /* --- Pain CTA --- */
 /* Hero logo */
@@ -809,7 +831,7 @@ button {
   background: var(--color-bg-card);
   padding: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   transform-origin: center center;
 }
 
@@ -981,7 +1003,7 @@ button {
   width: 600px;
   height: 600px;
   border-radius: var(--radius-full);
-  background: radial-gradient(circle, rgba(78,130,238,0.08) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(78, 130, 238, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1071,7 +1093,7 @@ button {
 }
 
 .popup-close:hover {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--color-text-primary);
 }
 
@@ -1082,7 +1104,7 @@ button {
   left: 0;
   right: 0;
   height: 3px;
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: 20px 20px 0 0;
   overflow: hidden;
 }
@@ -1134,8 +1156,15 @@ button {
 }
 
 @keyframes popupFadeIn {
-  from { opacity: 0; transform: translateX(16px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 /* Inputs */
@@ -1154,7 +1183,7 @@ button {
   font-size: 16px;
   font-family: var(--font-primary);
   color: var(--color-text-primary);
-  background: rgba(255,255,255,0.04);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   outline: none;
@@ -1164,7 +1193,7 @@ button {
 .popup-input:focus {
   border-color: var(--color-accent);
   box-shadow: 0 0 0 3px rgba(0, 209, 255, 0.08);
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .popup-input::placeholder {
@@ -1189,7 +1218,7 @@ button {
   align-items: center;
   gap: 14px;
   padding: 14px 18px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   cursor: pointer;
@@ -1200,7 +1229,7 @@ button {
 
 .popup-radio:hover {
   border-color: var(--color-border-accent);
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .popup-radio input {
@@ -1217,17 +1246,17 @@ button {
   transition: all var(--transition-fast);
 }
 
-.popup-radio input:checked ~ .popup-radio__box {
+.popup-radio input:checked~.popup-radio__box {
   border-color: var(--color-accent);
   background: var(--color-accent);
 }
 
-.popup-radio input:checked ~ .popup-radio__box::after {
+.popup-radio input:checked~.popup-radio__box::after {
   content: '';
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   width: 8px;
   height: 8px;
   border-radius: var(--radius-full);
@@ -1285,7 +1314,7 @@ button {
 
 .popup-btn--back:hover {
   color: var(--color-text-primary);
-  border-color: rgba(255,255,255,0.12);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .popup-btn:disabled {
@@ -1305,7 +1334,7 @@ button {
   display: flex;
   justify-content: space-between;
   padding: 12px 16px;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
 }
@@ -1383,10 +1412,21 @@ button {
 }
 
 /* stagger delay helpers */
-.reveal-delay-1 { transition-delay: 0.08s !important; }
-.reveal-delay-2 { transition-delay: 0.16s !important; }
-.reveal-delay-3 { transition-delay: 0.24s !important; }
-.reveal-delay-4 { transition-delay: 0.32s !important; }
+.reveal-delay-1 {
+  transition-delay: 0.08s !important;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.16s !important;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.24s !important;
+}
+
+.reveal-delay-4 {
+  transition-delay: 0.32s !important;
+}
 
 /* --- Counter Animation --- */
 .counter-animated {
@@ -1407,7 +1447,7 @@ button {
   .bento-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .bento-card--large {
     grid-column: span 2;
   }
@@ -1445,6 +1485,11 @@ button {
   .hero {
     min-height: 100svh;
     padding-bottom: 40px;
+  }
+
+  .hero__image {
+    object-fit: contain;
+    object-position: center top;
   }
 
   .hero__logo-mobile {
@@ -1486,7 +1531,8 @@ button {
     align-items: center;
   }
 
-  .btn-primary, .btn-secondary {
+  .btn-primary,
+  .btn-secondary {
     width: 100%;
     max-width: 320px;
     justify-content: center;
@@ -1529,14 +1575,14 @@ button {
     align-items: center;
     justify-content: center;
     font-size: 32px;
-    color: rgba(255,255,255,0.9);
-    background: rgba(0,0,0,0.3);
+    color: rgba(255, 255, 255, 0.9);
+    background: rgba(0, 0, 0, 0.3);
     border-radius: var(--radius-lg);
     transition: background 0.2s;
   }
 
   .video-wrapper[data-video-id]:active::after {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
   }
 }
 
@@ -1566,8 +1612,8 @@ button {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(255,255,255,0.15);
-  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   font-size: 24px;
   display: flex;
@@ -1638,8 +1684,13 @@ button {
 }
 
 @keyframes teamScroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @media (max-width: 480px) {
@@ -1655,7 +1706,10 @@ button {
 
 /* Prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
