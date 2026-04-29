@@ -692,9 +692,12 @@
       // --- Team Carousel Infinite Scroll (Mobile) ---
       const teamGrid = document.querySelector('.team-grid');
       if (teamGrid && isMobile()) {
-        // Duplicate items for infinite illusion
+        // Strip reveal classes so items don't wait for scroll observer
         const items = [...teamGrid.children];
         items.forEach(item => {
+          item.classList.remove('reveal', 'reveal-delay-1', 'reveal-delay-2', 'reveal-delay-3', 'reveal-delay-4');
+          item.classList.add('visible');
+          
           const clone = item.cloneNode(true);
           teamGrid.appendChild(clone);
         });
