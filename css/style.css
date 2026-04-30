@@ -341,8 +341,9 @@ button {
 
   .shiny-cta {
     font-size: 0.95rem;
-    padding: 1rem 1.75rem;
-    white-space: nowrap;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    justify-content: center;
   }
 }
 
