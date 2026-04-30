@@ -165,12 +165,13 @@ button {
 /* --- Hero --- */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 120vh; /* Aumentado de 100vh para dar mais espaço à imagem */
   display: flex;
-  align-items: center;
+  align-items: flex-end; /* Alterado de center para flex-end para tirar da frente dos rostos */
   justify-content: flex-start;
+  padding-bottom: 80px; /* Margem para não colar na base */
   overflow: hidden;
-  content-visibility: visible; /* Ensure hero is always rendered immediately */
+  content-visibility: visible;
 }
 
 .hero__image-wrapper {
@@ -2150,8 +2151,8 @@ button {
   }
 
   .hero {
-    min-height: 100svh;
-    padding-bottom: 40px; /* Reduzido de 80px para jogar mais pra baixo, mantendo margem mínima */
+    min-height: 130svh; /* Aumentado significativamente para mobile */
+    padding-bottom: 40px;
     align-items: flex-end;
   }
 
