@@ -9,8 +9,8 @@
     content="A Scale Company estrutura aquisição previsível para advogados que querem crescer com método, clareza e posicionamento. Mais de 200 escritórios atendidos.">
 
   <!-- Preload hero image -->
-  <link rel="preload" as="image" href="assets/desktop.png" media="(min-width: 769px)">
-  <link rel="preload" as="image" href="assets/mobile.png" media="(max-width: 768px)">
+  <link rel="preload" as="image" href="assets/desktop.webp" media="(min-width: 769px)" type="image/webp">
+  <link rel="preload" as="image" href="assets/mobile.webp" media="(max-width: 768px)" type="image/webp">
 
   <!-- External resource preconnects -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,8 +29,10 @@
   <section class="hero" id="hero">
     <div class="hero__image-wrapper">
       <picture>
+        <source srcset="assets/mobile.webp" media="(max-width: 768px)" type="image/webp">
         <source srcset="assets/mobile.png" media="(max-width: 768px)">
-        <img src="assets/desktop.png" alt="" class="hero__image" width="1920" height="1080" fetchpriority="high"
+        <source srcset="assets/desktop.webp" type="image/webp">
+        <img src="assets/desktop.png" alt="Escritório de advocacia organizado" class="hero__image" width="1920" height="1080" fetchpriority="high"
           decoding="async">
       </picture>
     </div>
@@ -174,7 +176,7 @@
         <!-- Grid de Vídeos Centralizado -->
         <div class="videos__grid reveal">
           <div class="video-card video-wrapper" data-video-id="hZxR3DadbTg">
-            <img src="assets/capa-depoimento-bichara.png" alt="Depoimento Bichara Advogados" class="video-card__poster">
+            <img src="assets/capa-depoimento-bichara.png" alt="Depoimento Bichara Advogados" class="video-card__poster" loading="lazy" decoding="async">
             <div class="video-card__play">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <circle cx="12" cy="12" r="10" />
@@ -183,7 +185,7 @@
             </div>
           </div>
           <div class="video-card video-wrapper" data-video-id="4V0ArJKXb-4">
-            <img src="assets/capa-drvitor-miranda.png" alt="Depoimento Dr. Vitor Miranda" class="video-card__poster">
+            <img src="assets/capa-drvitor-miranda.png" alt="Depoimento Dr. Vitor Miranda" class="video-card__poster" loading="lazy" decoding="async">
             <div class="video-card__play">
               <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                 <circle cx="12" cy="12" r="10" />
@@ -229,26 +231,26 @@
       <div class="sticky-stack">
         <div class="sticky-card">
           <picture>
-            <source srcset="imgs-dores/ChatGPT%20Image%2030%20de%20abr.%20de%202026,%2002_17_26%20(1).png" media="(max-width: 768px)">
-            <img src="imgs-dores/dependencia-indicacao-1.png" alt="Dependência de Indicação" loading="lazy">
+            <source srcset="imgs-dores/dependencia-indicacao.webp" type="image/webp">
+            <img src="imgs-dores/dependencia-indicacao-1.png" alt="Dependência de Indicação" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="sticky-card">
           <picture>
-            <source srcset="imgs-dores/ChatGPT%20Image%2030%20de%20abr.%20de%202026,%2002_17_27%20(2).png" media="(max-width: 768px)">
-            <img src="imgs-dores/agenda-instavel-1.png" alt="Agenda Instável" loading="lazy">
+            <source srcset="imgs-dores/agenda-instavel.webp" type="image/webp">
+            <img src="imgs-dores/agenda-instavel-1.png" alt="Agenda Instável" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="sticky-card">
           <picture>
-            <source srcset="imgs-dores/ChatGPT%20Image%2030%20de%20abr.%20de%202026,%2002_17_27%20(3).png" media="(max-width: 768px)">
-            <img src="imgs-dores/marketing-sem-metodo-1.png" alt="Marketing Sem Método" loading="lazy">
+            <source srcset="imgs-dores/marketing-sem-metodo.webp" type="image/webp">
+            <img src="imgs-dores/marketing-sem-metodo-1.png" alt="Marketing Sem Método" loading="lazy" decoding="async">
           </picture>
         </div>
         <div class="sticky-card">
           <picture>
-            <source srcset="imgs-dores/ChatGPT%20Image%2030%20de%20abr.%20de%202026,%2002_17_27%20(4)%20copy.png" media="(max-width: 768px)">
-            <img src="imgs-dores/crescimento-preso-ao-socio-1.png" alt="Crescimento Preso ao Sócio" loading="lazy">
+            <source srcset="imgs-dores/crescimento-preso-ao-socio.webp" type="image/webp">
+            <img src="imgs-dores/crescimento-preso-ao-socio-1.png" alt="Crescimento Preso ao Sócio" loading="lazy" decoding="async">
           </picture>
         </div>
       </div>
@@ -687,8 +689,8 @@
 
         <!-- Step 1: Nome -->
         <div class="popup-step active" data-step="1">
-          <label class="popup-label" for="lead-nome">Nome completo</label>
-          <input class="popup-input" type="text" id="lead-nome" placeholder="Seu nome" autocomplete="name" required>
+          <label class="popup-label" for="lead-nome">Para iniciarmos, qual seu nome completo?</label>
+          <input class="popup-input" type="text" id="lead-nome" placeholder="Digite seu nome" autocomplete="name" required>
           <div class="popup-actions">
             <button class="popup-btn popup-btn--next" id="btn-next-1">
               Continuar
@@ -702,7 +704,7 @@
 
         <!-- Step 2: WhatsApp -->
         <div class="popup-step" data-step="2">
-          <label class="popup-label" for="lead-whatsapp">WhatsApp</label>
+          <label class="popup-label" for="lead-whatsapp">Qual o seu melhor WhatsApp para agendarmos o diagnóstico?</label>
           <input class="popup-input" type="tel" id="lead-whatsapp" placeholder="(00) 00000-0000" autocomplete="tel"
             required>
           <div class="popup-actions popup-actions--split">
@@ -719,7 +721,7 @@
 
         <!-- Step 3: Instagram -->
         <div class="popup-step" data-step="3">
-          <label class="popup-label" for="lead-instagram">@ do Instagram do escritório ou advogado <span
+          <label class="popup-label" for="lead-instagram">Para conhecermos seu posicionamento atual, qual o Instagram do escritório? <span
               style="opacity:0.7; font-size: 0.9em;">(Opcional)</span></label>
           <input class="popup-input" type="text" id="lead-instagram" placeholder="@seuescritorio" autocomplete="off">
           <p class="popup-hint">Informe como aparece no Instagram. Se não lembrar agora pode pular, mas é recomendado.
@@ -738,7 +740,7 @@
 
         <!-- Step 4: Faturamento -->
         <div class="popup-step" data-step="4">
-          <label class="popup-label">Faturamento mensal aproximado</label>
+          <label class="popup-label">Por fim, qual o faturamento mensal aproximado do escritório?</label>
           <div class="popup-radio-group" id="lead-faturamento">
             <label class="popup-radio">
               <input type="radio" name="faturamento" value="Menos de R$ 30 mil">
@@ -1100,6 +1102,16 @@
         // Update progress
         const pct = step <= totalSteps ? (step / totalSteps) * 100 : 100;
         progressBar.style.width = pct + '%';
+
+        // Personalize label based on name
+        if (step === 2) {
+          const nomeFull = document.getElementById('lead-nome').value.trim();
+          const nome = nomeFull.split(' ')[0];
+          const label = target.querySelector('.popup-label');
+          if (label && nome) {
+            label.innerHTML = `Prazer, ${nome}! Qual o seu melhor WhatsApp para agendarmos o diagnóstico?`;
+          }
+        }
 
         // Auto-focus input
         setTimeout(() => {

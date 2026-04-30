@@ -100,6 +100,7 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+  image-rendering: -webkit-optimize-contrast;
 }
 
 a {
@@ -126,6 +127,8 @@ button {
   padding: var(--section-padding) 0;
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.02);
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
 }
 
 .section::before {
@@ -165,9 +168,9 @@ button {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  /* Centraliza verticalmente o container inteiro */
   justify-content: flex-start;
   overflow: hidden;
+  content-visibility: visible; /* Ensure hero is always rendered immediately */
 }
 
 .hero__image-wrapper {
@@ -664,6 +667,8 @@ button {
 .sticky-card img {
   width: 100%;
   height: auto;
+  aspect-ratio: 16 / 9; /* Mantém proporção e evita CLS */
+  object-fit: cover;
   display: block;
   border-radius: inherit;
   border: 1px solid var(--color-border);
