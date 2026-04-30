@@ -276,9 +276,9 @@ button {
 .hero__authority-bar {
   margin-top: 32px;
   display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px 24px;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+  gap: 16px;
   color: var(--color-text-muted);
   font-size: 14px;
   font-weight: 500;
@@ -287,21 +287,24 @@ button {
 
 .hero__authority-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  white-space: nowrap;
+  gap: 6px;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
 }
 
 .hero__authority-item svg {
   color: var(--color-accent);
   opacity: 0.8;
   flex-shrink: 0;
+  width: 18px;
+  height: 18px;
 }
 
 .hero__authority-divider {
-  color: var(--color-border);
-  opacity: 0.5;
-  font-weight: 300;
+  display: none;
 }
 
 @media (max-width: 768px) {
