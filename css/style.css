@@ -169,7 +169,7 @@ button {
   display: flex;
   align-items: flex-end;
   justify-content: flex-start;
-  padding-bottom: 140px; /* Aumentado de 80px para subir um pouco o conteúdo */
+  padding-bottom: 240px; /* Aumentado significativamente para dar margem clara da base e do ticker */
   overflow: hidden;
   content-visibility: visible;
 }
@@ -2152,7 +2152,7 @@ button {
 
   .hero {
     min-height: 130svh;
-    padding-bottom: 100px; /* Aumentado de 40px para subir um pouco o conteúdo no mobile */
+    padding-bottom: 180px; /* Aumentado para garantir que não fique colado no ticker/base no mobile */
     align-items: flex-end;
   }
 
