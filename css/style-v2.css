@@ -209,3 +209,173 @@ button { background: none; border: none; cursor: pointer; font: inherit; color: 
 .lightbox::backdrop { background: rgba(0,0,0,0.85); backdrop-filter: blur(4px); }
 .lightbox-image { max-width: 100%; max-height: 90vh; border-radius: var(--radius-lg); }
 .lightbox-close { position: absolute; top: var(--space-4); right: var(--space-4); font-size: 2rem; color: #fff; background: rgba(0,0,0,0.5); border: none; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; display: flex; justify-content: center; align-items: center; }
+
+/* Popup Multi-step Form */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.78);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.popup-form {
+  width: min(620px, 100%);
+  max-height: 92vh;
+  overflow-y: auto;
+  position: relative;
+  background: linear-gradient(145deg, #07090d, #020203);
+  border: 1px solid rgba(0, 119, 255, 0.26);
+  box-shadow: 0 40px 120px rgba(0, 0, 0, 0.85);
+  padding: 34px;
+  transform: translateY(18px) scale(0.98);
+  transition: transform 0.28s ease;
+}
+
+.popup-overlay.active .popup-form {
+  transform: translateY(0) scale(1);
+}
+
+.popup-close {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  font-size: 30px;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+.popup-progress {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  margin: 12px 0 28px;
+  overflow: hidden;
+}
+
+.popup-progress__bar {
+  height: 100%;
+  background: var(--brand-blue);
+  transition: width 0.35s ease;
+}
+
+.popup-header {
+  margin-bottom: 28px;
+}
+
+.popup-header__title {
+  font-size: clamp(24px, 4vw, 34px);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.popup-header__title strong {
+  color: var(--brand-blue);
+}
+
+.popup-step {
+  display: none;
+}
+
+.popup-step.active {
+  display: block;
+}
+
+.popup-label {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.popup-input {
+  width: 100%;
+  height: 58px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  padding: 0 16px;
+  font-size: 16px;
+  outline: none;
+}
+
+.popup-radio-group {
+  display: grid;
+  gap: 10px;
+}
+
+.popup-radio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+}
+
+.popup-radio input {
+  display: none;
+}
+
+.popup-radio__box {
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.popup-radio input:checked + .popup-radio__box {
+  background: var(--brand-blue);
+  border-color: var(--brand-blue);
+}
+
+.popup-summary {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.popup-summary__item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 10px 0;
+}
+
+.popup-summary__label {
+  color: var(--color-text-3);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.popup-btn {
+  min-height: 52px;
+  padding: 0 24px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+
+.popup-btn--next, .popup-btn--submit {
+  background: var(--brand-blue);
+  color: #fff;
+}
+
+.popup-btn--back {
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}

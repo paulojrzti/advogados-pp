@@ -297,33 +297,10 @@
           </p>
         </div>
 
-        <form class="lead-form" novalidate>
-          <label>Nome completo <input type="text" name="name" autocomplete="name" required></label>
-          <label>WhatsApp <input type="tel" name="phone" autocomplete="tel" required></label>
-          <label>E-mail profissional <input type="email" name="email" autocomplete="email" required></label>
-          <label>Área principal de atuação
-            <select name="area" required>
-              <option value="">Selecione</option>
-              <option>Previdenciário</option>
-              <option>Família</option>
-              <option>Trabalhista</option>
-              <option>Cível</option>
-              <option>Empresarial</option>
-              <option>Outro</option>
-            </select>
-          </label>
-          <label>Tamanho do escritório
-            <select name="size" required>
-              <option value="">Selecione</option>
-              <option>Solo</option>
-              <option>2 a 5 pessoas</option>
-              <option>6 a 15 pessoas</option>
-              <option>16+</option>
-            </select>
-          </label>
-          <button type="submit" class="btn-conic">Diagnóstico gratuito</button>
-          <p class="micro" style="margin-top: 1rem;">Sem custo. Sem compromisso. Com visão estratégica do cenário atual.</p>
-        </form>
+        <div class="cta-actions">
+          <button class="btn-conic js-open-form" style="width: 100%; max-width: 400px; height: 64px; font-size: 1.1rem;">Solicitar diagnóstico da operação</button>
+          <p class="micro" style="margin-top: 1.5rem;">Uma análise inicial sobre posicionamento, canais de aquisição e gargalos comerciais do escritório.</p>
+        </div>
       </div>
     </section>
   </main>
@@ -336,6 +313,105 @@
     <button class="lightbox-close" aria-label="Fechar">&times;</button>
     <img src="" alt="" class="lightbox-image">
   </dialog>
+
+  <!-- POPUP FORM -->
+  <div class="popup-overlay" id="popup-overlay">
+    <div class="popup-form">
+      <button class="popup-close" id="popup-close">&times;</button>
+      
+      <div class="popup-progress">
+        <div class="popup-progress__bar" id="popup-progress-bar"></div>
+      </div>
+
+      <div class="popup-header">
+        <h3 class="popup-header__title">Diagnóstico da <strong>Operação</strong></h3>
+        <p class="popup-header__sub">Preencha os dados abaixo para analisarmos seu cenário.</p>
+      </div>
+
+      <div class="popup-steps">
+        <!-- Step 1: Nome -->
+        <div class="popup-step active" data-step="1">
+          <label class="popup-label" for="lead-nome">Qual o seu nome completo?</label>
+          <input class="popup-input" type="text" id="lead-nome" placeholder="Seu nome aqui" autocomplete="name" required>
+          <div class="popup-actions">
+            <button class="popup-btn popup-btn--next" id="btn-next-1">
+              Continuar
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2: WhatsApp -->
+        <div class="popup-step" data-step="2">
+          <label class="popup-label" for="lead-whatsapp">Qual seu WhatsApp?</label>
+          <input class="popup-input" type="tel" id="lead-whatsapp" placeholder="(00) 00000-0000" autocomplete="tel" required>
+          <div class="popup-actions popup-actions--split">
+            <button class="popup-btn popup-btn--back" id="btn-back-2">Voltar</button>
+            <button class="popup-btn popup-btn--next" id="btn-next-2">Continuar</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Instagram -->
+        <div class="popup-step" data-step="3">
+          <label class="popup-label" for="lead-instagram">Qual o Instagram do escritório?</label>
+          <input class="popup-input" type="text" id="lead-instagram" placeholder="@seuescritorio">
+          <div class="popup-actions popup-actions--split">
+            <button class="popup-btn popup-btn--back" id="btn-back-3">Voltar</button>
+            <button class="popup-btn popup-btn--next" id="btn-next-3">Continuar</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Faturamento -->
+        <div class="popup-step" data-step="4">
+          <label class="popup-label">Qual o faturamento mensal aproximado?</label>
+          <div class="popup-radio-group">
+            <label class="popup-radio">
+              <input type="radio" name="faturamento" value="menos_30k" data-label="Menos de R$ 30 mil">
+              <span class="popup-radio__box"></span> Menos de R$ 30 mil
+            </label>
+            <label class="popup-radio">
+              <input type="radio" name="faturamento" value="30_50k" data-label="Entre R$ 30 mil e R$ 50 mil">
+              <span class="popup-radio__box"></span> Entre R$ 30 mil e R$ 50 mil
+            </label>
+            <label class="popup-radio">
+              <input type="radio" name="faturamento" value="50_100k" data-label="Entre R$ 50 mil e R$ 100 mil">
+              <span class="popup-radio__box"></span> Entre R$ 50 mil e R$ 100 mil
+            </label>
+            <label class="popup-radio">
+              <input type="radio" name="faturamento" value="100k_plus" data-label="Mais de R$ 100 mil">
+              <span class="popup-radio__box"></span> Mais de R$ 100 mil
+            </label>
+          </div>
+          <div class="popup-actions popup-actions--split">
+            <button class="popup-btn popup-btn--back" id="btn-back-4">Voltar</button>
+            <button class="popup-btn popup-btn--next" id="btn-next-4">Continuar</button>
+          </div>
+        </div>
+
+        <!-- Step 5: Enviar -->
+        <div class="popup-step" data-step="5">
+          <div class="popup-summary" id="popup-summary"></div>
+          <div class="popup-consent-wrapper">
+            <label style="display: flex; gap: 10px; font-size: 13px; color: var(--color-text-3);">
+              <input type="checkbox" id="lead-consent" required>
+              <span>Eu concordo em receber contato da Scale Company.</span>
+            </label>
+          </div>
+          <div class="popup-actions popup-actions--split">
+            <button class="popup-btn popup-btn--back" id="btn-back-5">Voltar</button>
+            <button class="popup-btn popup-btn--submit" id="btn-submit">Enviar</button>
+          </div>
+        </div>
+
+        <!-- Step 6: Sucesso -->
+        <div class="popup-step" data-step="6">
+          <div class="popup-success" style="text-align: center;">
+            <h3>Recebemos seu contato!</h3>
+            <p>Em breve entraremos em contato via WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>

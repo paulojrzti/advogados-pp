@@ -2471,16 +2471,16 @@
                         faturamento mensal do escritório?</label>
                     <div class="popup-radio-group" id="lead-faturamento">
                         <label class="popup-radio"><input type="radio" name="faturamento"
-                                value="Menos de R$ 30 mil"><span class="popup-radio__box"></span>Menos de R$ 30
+                                value="menos_30k" data-label="Menos de R$ 30 mil"><span class="popup-radio__box"></span>Menos de R$ 30
                             mil</label>
                         <label class="popup-radio"><input type="radio" name="faturamento"
-                                value="Entre R$ 30 mil e R$ 50 mil"><span class="popup-radio__box"></span>Entre R$ 30
+                                value="30_50k" data-label="Entre R$ 30 mil e R$ 50 mil"><span class="popup-radio__box"></span>Entre R$ 30
                             mil e R$ 50 mil</label>
                         <label class="popup-radio"><input type="radio" name="faturamento"
-                                value="Entre R$ 50 mil e R$ 100 mil"><span class="popup-radio__box"></span>Entre R$ 50
+                                value="50_100k" data-label="Entre R$ 50 mil e R$ 100 mil"><span class="popup-radio__box"></span>Entre R$ 50
                             mil e R$ 100 mil</label>
                         <label class="popup-radio"><input type="radio" name="faturamento"
-                                value="Mais de R$ 100 mil"><span class="popup-radio__box"></span>Mais de R$ 100
+                                value="100k_plus" data-label="Mais de R$ 100 mil"><span class="popup-radio__box"></span>Mais de R$ 100
                             mil</label>
                     </div>
                     <div class="popup-actions popup-actions--split"><button class="popup-btn popup-btn--back"
@@ -2494,14 +2494,21 @@
 
                 <div class="popup-step" data-step="5">
                     <div class="popup-summary" id="popup-summary"></div>
-                    <p class="popup-consent">Ao enviar, você concorda em receber contato da Scale Company pelos dados
-                        informados.</p>
-                    <div class="popup-actions popup-actions--split"><button class="popup-btn popup-btn--back"
-                            id="btn-back-5">Voltar</button><button class="popup-btn popup-btn--submit"
-                            id="btn-submit">Enviar <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2.5">
+                    <div class="popup-consent-wrapper" style="margin-top: 20px;">
+                        <label class="popup-checkbox-label" style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 13px; color: var(--color-text-muted);">
+                            <input type="checkbox" id="lead-consent" required style="margin-top: 3px;">
+                            <span>Eu concordo em receber contato da Scale Company para o diagnóstico da operação e aceito a política de privacidade.</span>
+                        </label>
+                    </div>
+                    <div class="popup-actions popup-actions--split" style="margin-top: 24px;">
+                        <button class="popup-btn popup-btn--back" id="btn-back-5">Voltar</button>
+                        <button class="popup-btn popup-btn--submit" id="btn-submit">
+                            Enviar
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                                 <polyline points="20 6 9 17 4 12" />
-                            </svg></button></div>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="popup-step" data-step="6">
@@ -2635,17 +2642,41 @@
                 radio.addEventListener('change', () => setTimeout(() => goToStep(5), 260));
             });
 
+            // Helper for UTMs
+            function getUTMs() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return {
+                    utm_source: urlParams.get('utm_source') || '',
+                    utm_medium: urlParams.get('utm_medium') || '',
+                    utm_campaign: urlParams.get('utm_campaign') || '',
+                    utm_content: urlParams.get('utm_content') || '',
+                    utm_term: urlParams.get('utm_term') || '',
+                    gclid: urlParams.get('gclid') || '',
+                    fbclid: urlParams.get('fbclid') || ''
+                };
+            }
+
+            // Helper for UUID
+            function generateUUID() {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    const r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+                    return v.toString(16);
+                });
+            }
+
             function buildSummary() {
                 const summary = document.getElementById('popup-summary');
                 const nome = document.getElementById('lead-nome').value || '—';
                 const whatsapp = document.getElementById('lead-whatsapp').value || '—';
                 const instagram = document.getElementById('lead-instagram').value || '—';
-                const faturamento = document.querySelector('input[name="faturamento"]:checked')?.value || '—';
+                const faturamentoRadio = document.querySelector('input[name="faturamento"]:checked');
+                const faturamentoLabel = faturamentoRadio ? faturamentoRadio.getAttribute('data-label') : '—';
+
                 summary.innerHTML = `
           <div class="popup-summary__item"><span class="popup-summary__label">Nome</span><span class="popup-summary__value">${escapeHTML(nome)}</span></div>
           <div class="popup-summary__item"><span class="popup-summary__label">WhatsApp</span><span class="popup-summary__value">${escapeHTML(whatsapp)}</span></div>
           <div class="popup-summary__item"><span class="popup-summary__label">Instagram</span><span class="popup-summary__value">${escapeHTML(instagram)}</span></div>
-          <div class="popup-summary__item"><span class="popup-summary__label">Faturamento</span><span class="popup-summary__value">${escapeHTML(faturamento)}</span></div>`;
+          <div class="popup-summary__item"><span class="popup-summary__label">Faturamento</span><span class="popup-summary__value">${escapeHTML(faturamentoLabel)}</span></div>`;
             }
 
             function escapeHTML(str) {
@@ -2653,30 +2684,58 @@
             }
 
             document.getElementById('btn-submit').addEventListener('click', async () => {
+                const consentCheckbox = document.getElementById('lead-consent');
+                if (!consentCheckbox.checked) {
+                    consentCheckbox.parentElement.style.animation = 'shake 0.4s ease';
+                    setTimeout(() => consentCheckbox.parentElement.style.animation = '', 400);
+                    return;
+                }
+
                 const submitBtn = document.getElementById('btn-submit');
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px;">Enviando...</span>';
 
-                const data = {
+                const faturamentoRadio = document.querySelector('input[name="faturamento"]:checked');
+                const phoneRaw = document.getElementById('lead-whatsapp').value;
+                
+                const payload = {
                     nome: document.getElementById('lead-nome').value,
-                    whatsapp: document.getElementById('lead-whatsapp').value,
-                    instagram: document.getElementById('lead-instagram').value,
-                    faturamento: document.querySelector('input[name="faturamento"]:checked')?.value || ''
+                    telefone: phoneRaw,
+                    telefone_limpo: phoneRaw.replace(/\D/g, ''),
+                    perfilArroba: document.getElementById('lead-instagram').value,
+                    faturamento: {
+                        value: faturamentoRadio ? faturamentoRadio.value : '',
+                        label: faturamentoRadio ? faturamentoRadio.getAttribute('data-label') : ''
+                    },
+                    lead_id: generateUUID(),
+                    origem: "lead-form-modal",
+                    form_name: "advogados_lp",
+                    pagina: "/advogados",
+                    criadoEm: new Date().toISOString(),
+                    atribuicao: getUTMs()
                 };
+
+                // GTM custom event before webhook
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({ 
+                    event: 'lead_submit_success',
+                    lead_data: {
+                        faturamento: payload.faturamento.value,
+                        origem: payload.origem
+                    }
+                });
 
                 try {
                     await fetch('https://hook.us1.make.com/bk8vzf7u1d7m0fueemgfqemutft9k6ve', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data),
+                        body: JSON.stringify(payload),
                         mode: 'no-cors'
                     });
                 } catch (err) {
                     console.error('Webhook error:', err);
                 }
 
-                window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({ event: 'lead_submit_success' });
                 goToStep(6);
             });
 
