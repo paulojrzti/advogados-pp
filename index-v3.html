@@ -1630,8 +1630,31 @@
                 min-height: 100svh;
             }
 
+            .hero__image-wrapper {
+                position: absolute;
+                inset: 0;
+                z-index: 0;
+            }
+
+            .hero__image-wrapper picture {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+
+            .hero__image {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                object-position: center top;
+                background: #010000;
+            }
+
             .hero::after {
-                background: linear-gradient(to top, #010000 0%, rgba(1, 0, 0, .74) 34%, rgba(1, 0, 0, .18) 76%);
+                background: linear-gradient(to top,
+                        #010000 0%,
+                        rgba(1, 0, 0, .74) 34%,
+                        rgba(1, 0, 0, .18) 76%);
             }
 
             .hero .container {
