@@ -417,6 +417,35 @@
             align-items: flex-start;
         }
 
+        .pain-mobile-intro {
+            margin-bottom: 22px;
+            text-align: left;
+        }
+
+        .pain-mobile-intro span {
+            display: block;
+            color: var(--color-accent);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .pain-mobile-intro h3 {
+            font-size: 24px;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .pain-mobile-intro p {
+            color: var(--color-text-muted);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
         .surgical-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -1821,8 +1850,8 @@
                         class="text-gradient">junto?</span>
                 </h1>
                 <p class="hero__subheadline">
-                    Estruturamos aquisição para escritórios de advocacia que ainda dependem demais de indicação,
-                    relacionamento e presença constante dos sócios.
+                    Estruturamos o caminho entre o cliente certo e o seu escritório de advocacia, para que o crescimento
+                    não dependa quase totalmente de indicações, relacionamento e presença constante dos sócios.
                 </p>
 
                 <div class="hero__ctas">
@@ -1850,12 +1879,6 @@
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
                         </svg>Google Ads + Meta Ads</div>
-                    <div class="auth-item"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="10" />
-                            <line x1="12" y1="8" x2="12" y2="12" />
-                            <line x1="12" y1="16" x2="12.01" y2="16" />
-                        </svg>Comunicação informativa</div>
                 </div>
             </div>
         </div>
@@ -1882,6 +1905,14 @@
                 </div>
 
                 <div class="surgical-grid reveal">
+                    <div class="pain-mobile-intro">
+                        <span>Diagnóstico inicial</span>
+                        <h3>Seu escritório pode estar crescendo com uma estrutura frágil.</h3>
+                        <p>
+                            A indicação ajuda. Mas quando ela é a principal fonte de entrada, o crescimento fica
+                            vulnerável.
+                        </p>
+                    </div>
                     <div class="surgical-card">
                         <div class="surgical-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -2470,17 +2501,19 @@
                     <label class="popup-label">Para entendermos o porte da operação, qual é a faixa aproximada de
                         faturamento mensal do escritório?</label>
                     <div class="popup-radio-group" id="lead-faturamento">
-                        <label class="popup-radio"><input type="radio" name="faturamento"
-                                value="menos_30k" data-label="Menos de R$ 30 mil"><span class="popup-radio__box"></span>Menos de R$ 30
+                        <label class="popup-radio"><input type="radio" name="faturamento" value="menos_30k"
+                                data-label="Menos de R$ 30 mil"><span class="popup-radio__box"></span>Menos de R$ 30
                             mil</label>
-                        <label class="popup-radio"><input type="radio" name="faturamento"
-                                value="30_50k" data-label="Entre R$ 30 mil e R$ 50 mil"><span class="popup-radio__box"></span>Entre R$ 30
+                        <label class="popup-radio"><input type="radio" name="faturamento" value="30_50k"
+                                data-label="Entre R$ 30 mil e R$ 50 mil"><span class="popup-radio__box"></span>Entre R$
+                            30
                             mil e R$ 50 mil</label>
-                        <label class="popup-radio"><input type="radio" name="faturamento"
-                                value="50_100k" data-label="Entre R$ 50 mil e R$ 100 mil"><span class="popup-radio__box"></span>Entre R$ 50
+                        <label class="popup-radio"><input type="radio" name="faturamento" value="50_100k"
+                                data-label="Entre R$ 50 mil e R$ 100 mil"><span class="popup-radio__box"></span>Entre R$
+                            50
                             mil e R$ 100 mil</label>
-                        <label class="popup-radio"><input type="radio" name="faturamento"
-                                value="100k_plus" data-label="Mais de R$ 100 mil"><span class="popup-radio__box"></span>Mais de R$ 100
+                        <label class="popup-radio"><input type="radio" name="faturamento" value="100k_plus"
+                                data-label="Mais de R$ 100 mil"><span class="popup-radio__box"></span>Mais de R$ 100
                             mil</label>
                     </div>
                     <div class="popup-actions popup-actions--split"><button class="popup-btn popup-btn--back"
@@ -2495,16 +2528,19 @@
                 <div class="popup-step" data-step="5">
                     <div class="popup-summary" id="popup-summary"></div>
                     <div class="popup-consent-wrapper" style="margin-top: 20px;">
-                        <label class="popup-checkbox-label" style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 13px; color: var(--color-text-muted);">
+                        <label class="popup-checkbox-label"
+                            style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer; font-size: 13px; color: var(--color-text-muted);">
                             <input type="checkbox" id="lead-consent" required style="margin-top: 3px;">
-                            <span>Eu concordo em receber contato da Scale Company para o diagnóstico da operação e aceito a política de privacidade.</span>
+                            <span>Eu concordo em receber contato da Scale Company para o diagnóstico da operação e
+                                aceito a política de privacidade.</span>
                         </label>
                     </div>
                     <div class="popup-actions popup-actions--split" style="margin-top: 24px;">
                         <button class="popup-btn popup-btn--back" id="btn-back-5">Voltar</button>
                         <button class="popup-btn popup-btn--submit" id="btn-submit">
                             Enviar
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
                                 <polyline points="20 6 9 17 4 12" />
                             </svg>
                         </button>
@@ -2658,7 +2694,7 @@
 
             // Helper for UUID
             function generateUUID() {
-                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
                     const r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
                     return v.toString(16);
                 });
@@ -2697,7 +2733,7 @@
 
                 const faturamentoRadio = document.querySelector('input[name="faturamento"]:checked');
                 const phoneRaw = document.getElementById('lead-whatsapp').value;
-                
+
                 const payload = {
                     nome: document.getElementById('lead-nome').value,
                     telefone: phoneRaw,
@@ -2717,7 +2753,7 @@
 
                 // GTM custom event before webhook
                 window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({ 
+                window.dataLayer.push({
                     event: 'lead_submit_success',
                     lead_data: {
                         faturamento: payload.faturamento.value,
