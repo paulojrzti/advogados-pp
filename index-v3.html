@@ -99,7 +99,7 @@
             position: relative;
             padding: var(--section-padding) 0;
             border-top: 1px solid rgba(255, 255, 255, 0.025);
-            overflow: hidden;
+            overflow: clip;
         }
 
         .section::before {
@@ -560,9 +560,14 @@
         .funnel-bar { display: grid; grid-template-columns: 88px 1fr; align-items: center; gap: 12px; font-size: 13px; color: var(--color-text-muted); }
         .bar-track { height: 12px; background: rgba(255, 255, 255, .07); overflow: hidden; }
         .bar-fill { height: 100%; background: linear-gradient(90deg, var(--color-accent), rgba(0, 119, 255, .35)); }
-        .method-steps { display: grid; gap: 16px; }
-        .method-step { display: grid; grid-template-columns: 72px 1fr; gap: 22px; padding: 28px; border: 1px solid rgba(255, 255, 255, .065); background: rgba(255, 255, 255, .018); transition: all var(--transition); }
-        .method-step:hover { border-color: rgba(0, 119, 255, .35); transform: translateY(-4px); background: rgba(0, 119, 255, .035); }
+        .method-steps { display: grid; gap: 40px; }
+        .method-step { position: sticky; display: grid; grid-template-columns: 72px 1fr; gap: 22px; padding: 34px; border: 1px solid rgba(255, 255, 255, .08); background: #010000; box-shadow: 0 -40px 60px rgba(0, 0, 0, 0.6); transition: all var(--transition); }
+        .method-step:nth-child(1) { top: 40px; }
+        .method-step:nth-child(2) { top: 60px; }
+        .method-step:nth-child(3) { top: 80px; }
+        .method-step:nth-child(4) { top: 100px; }
+        .method-step:nth-child(5) { top: 120px; }
+        .method-step:nth-child(6) { top: 140px; }
         .method-number { font-size: 40px; line-height: 1; font-weight: 900; color: rgba(0, 119, 255, .55); letter-spacing: -.08em; }
         .method-step h3 { font-size: 22px; margin-bottom: 9px; }
         .method-step p { font-size: 15px; color: var(--color-text-muted); line-height: 1.65; }
@@ -645,6 +650,21 @@
         .stagger-controls { position: relative; z-index: 20; display: flex; justify-content: center; gap: 14px; margin-top: -10px; }
         .stagger-controls button { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255, 255, 255, .11); background: rgba(255, 255, 255, .035); transition: all var(--transition); }
         .stagger-controls button:hover { border-color: rgba(0, 119, 255, .4); background: rgba(0, 119, 255, .09); }
+
+        .bullet-list { list-style: none; margin-top: 28px; display: grid; gap: 18px; }
+        .bullet-list li { display: flex; align-items: flex-start; gap: 14px; font-size: 17px; color: var(--color-text-primary); opacity: 0.85; line-height: 1.5; }
+        .bullet-list li svg { color: var(--color-accent); flex-shrink: 0; margin-top: 3px; }
+
+        .card-bullet-list { list-style: none; margin-top: 14px; display: grid; gap: 8px; }
+        .card-bullet-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--color-text-muted); line-height: 1.4; }
+        .card-bullet-list li svg { color: var(--color-accent); flex-shrink: 0; margin-top: 3px; }
+
+        .desktop-only { display: block; }
+        .mobile-only { display: none; }
+        @media (max-width: 991px) {
+            .desktop-only { display: none !important; }
+            .mobile-only { display: block !important; }
+        }
 
         /* CTA FINAL */
         .cta-final { padding: 100px 0; background: radial-gradient(circle at center, rgba(0, 119, 255, 0.12) 0%, transparent 70%); text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
@@ -793,7 +813,7 @@
                     Se você parar de trabalhar <span class="text-gradient">hoje</span>, seu escritório para <span class="text-gradient">junto?</span>
                 </h1>
                 <p class="hero__subheadline">
-                    Estruturamos o caminho entre o cliente certo e o seu escritório de advocacia, para que o crescimento não dependa totalmente de indicações, relacionamento e presença constante dos sócios.
+                    Estruturamos o caminho entre o cliente certo e o seu escritório de advocacia, para que o crescimento não dependa ftotalmente de indicações, relacionamento e presença constante dos sócios.
                 </p>
 
                 <div class="hero__ctas">
@@ -809,12 +829,34 @@
         </div>
     </section>
 
+<!-- VIDEOS -->
+    <section class="section section--proof" id="videos">
+        <div class="container">
+            <div class="section-header reveal" style="text-align:center;margin-bottom:60px;">
+                <div class="section-kicker">Depoimentos</div>
+                <h2 class="section-header__title">Advogados que já estruturaram o crescimento com a Scale</h2>
+                <p class="section-header__text" style="max-width:800px;margin:24px auto 0;">Veja como outros escritórios passaram a enxergar a operação com mais método, clareza e previsibilidade.</p>
+            </div>
+
+            <div class="videos__grid reveal">
+                <div class="video-card video-wrapper" data-video-id="hZxR3DadbTg">
+                    <img src="assets/capa-depoimento-bichara.png" alt="Depoimento Bichara Advogados" class="video-card__poster" loading="lazy" decoding="async">
+                    <div class="video-card__play"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg></div>
+                </div>
+                <div class="video-card video-wrapper" data-video-id="4V0ArJKXb-4">
+                    <img src="assets/capa-drvitor-miranda.png" alt="Depoimento Dr. Vitor Miranda" class="video-card__poster" loading="lazy" decoding="async">
+                    <div class="video-card__play"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <!-- DOR -->
     <section class="section" id="dor">
         <div class="container">
             <div class="pain-layout">
                 <div class="pain-content reveal">
-                    <div class="section-kicker">O ponto de tensão</div>
                     <h2 class="section-header__title" style="text-align:left;margin-left:0;">
                         O problema não é falta de competência jurídica.<br>
                         <span class="text-gradient">É depender de um fluxo que você não controla.</span>
@@ -829,9 +871,7 @@
 
                 <div class="surgical-grid reveal">
                     <div class="pain-mobile-intro">
-                        <span>Diagnóstico inicial</span>
                         <h3>Seu escritório pode estar crescendo com uma estrutura frágil.</h3>
-                        <p>A indicação ajuda. Mas quando ela é a principal fonte de entrada, o crescimento fica vulnerável.</p>
                     </div>
                     <div class="surgical-card">
                         <div class="surgical-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
@@ -862,8 +902,13 @@
                         Quando não existe processo, o crescimento demora, e só vem depois de uma soma de tentativas soltas.
                     </h2>
                     <p class="section-header__text">
-                        A consequência disso aparece na rotina do escritório: campanhas sem estratégia e leitura de métricas, oportunidades que eram boas, mas foram perdidas por demora no atendimento, e decisões tomadas com base no feeling do momento.
+                        A consequência disso aparece na rotina do escritório:
                     </p>
+                    <ul class="bullet-list">
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg> <span>Campanhas sem estratégia e leitura de métricas.</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span>Oportunidades boas perdidas por demora no atendimento.</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> <span>Decisões tomadas com base no "feeling" do momento.</span></li>
+                    </ul>
                 </div>
 
                 <div class="consequence-board reveal">
@@ -900,30 +945,74 @@
                 <div class="method-sticky reveal">
                     <div class="section-kicker">Método Scale</div>
                     <h2 class="section-header__title" style="text-align:left;margin-left:0;">
-                        Não é só subir anúncio.<br>
-                        <span class="text-gradient">É construir uma operação.</span>
+                        Do primeiro contato aos primeiros anúncios:<br>
+                        <span class="text-gradient">uma operação construída com método.</span>
                     </h2>
                     <p class="section-header__text" style="text-align:left;margin-left:0;">
-                        A Scale organiza posicionamento, Google Ads, Meta Ads, atendimento, relatórios semanais e melhoria contínua a partir da qualidade real dos contatos recebidos.
+                        Antes de qualquer campanha ir ao ar, entendemos o cenário do escritório, organizamos a estratégia e colocamos um time completo para transformar verba em processo, dados e melhoria contínua.
                     </p>
-
-                    <div class="method-map">
-                        <div class="method-map-title">Leitura do funil</div>
-                        <div class="funnel-bars">
-                            <div class="funnel-bar"><span>Intenção</span><div class="bar-track"><div class="bar-fill" style="width:92%"></div></div></div>
-                            <div class="funnel-bar"><span>Mensagem</span><div class="bar-track"><div class="bar-fill" style="width:82%"></div></div></div>
-                            <div class="funnel-bar"><span>Qualidade</span><div class="bar-track"><div class="bar-fill" style="width:74%"></div></div></div>
-                            <div class="funnel-bar"><span>Atendimento</span><div class="bar-track"><div class="bar-fill" style="width:68%"></div></div></div>
-                        </div>
+                    <div class="desktop-only" style="margin-top:34px;">
+                        <a href="#diagnostico" class="shiny-cta js-open-form"><span>Receber meu plano de ação gratuito</span></a>
                     </div>
                 </div>
 
                 <div class="method-steps reveal">
-                    <div class="method-step"><div class="method-number">01</div><div><h3>Diagnóstico da operação atual</h3><p>Mapeamos como o escritório hoje atrai, recebe e conduz oportunidades. O objetivo é entender onde a operação trava antes de propor qualquer caminho.</p></div></div>
-                    <div class="method-step"><div class="method-number">02</div><div><h3>Posicionamento e mensagem</h3><p>Transformamos a especialidade do escritório em uma comunicação clara, segura e compreensível para o cliente certo.</p></div></div>
-                    <div class="method-step"><div class="method-number">03</div><div><h3>Google Ads e Meta Ads</h3><p>Google para captar intenção de busca. Meta para presença, lembrança, posicionamento e geração de demanda qualificada.</p></div></div>
-                    <div class="method-step"><div class="method-number">04</div><div><h3>Atendimento e conversão</h3><p>Analisamos o que acontece depois do contato: velocidade de resposta, qualidade da conversa, filtros e avanço comercial.</p></div></div>
-                    <div class="method-step"><div class="method-number">05</div><div><h3>Relatórios e otimização semanal</h3><p>As decisões consideram custo, qualidade, conversão, feedback dos advogados e capacidade real do escritório.</p></div></div>
+                    <div class="method-step"><div class="method-number">01</div><div><h3>Diagnóstico inicial da operação</h3>
+                        <p>O primeiro passo é entender onde o escritório está hoje. Após o preenchimento do formulário, nosso SDR entra em contato para mapear o momento atual, os canais usados, os gargalos de aquisição e o histórico com marketing.</p>
+                        <ul class="card-bullet-list">
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Entendimento inicial do cenário do escritório.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mapeamento dos principais gargalos da operação.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Agendamento da reunião estratégica.</li>
+                        </ul>
+                    </div></div>
+
+                    <div class="method-step"><div class="method-number">02</div><div><h3>Plano de ação gratuito</h3>
+                        <p>Depois do diagnóstico inicial, apresentamos um plano de ação personalizado para a realidade do escritório. Essa reunião mostra quais pontos precisam ser ajustados para melhorar atração, atendimento e conversão, antes de qualquer investimento em campanha.</p>
+                        <ul class="card-bullet-list">
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plano personalizado sem custo.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Direcionamento de canais, mensagens e funil.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Prioridades claras para evolução da operação.</li>
+                        </ul>
+                    </div></div>
+
+                    <div class="method-step"><div class="method-number">03</div><div><h3>Fechamento e kickoff estratégico</h3>
+                        <p>Com o projeto aprovado, fazemos uma reunião de kickoff para aprofundar a operação. É nesse momento que coletamos acessos, entendemos detalhes do atendimento, revisamos a comunicação e alinhamos o plano de execução com o time.</p>
+                        <ul class="card-bullet-list">
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Coleta de acessos e informações essenciais.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Imersão no atendimento e na rotina comercial.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Alinhamento entre estratégia, mídia, criação e conversão.</li>
+                        </ul>
+                    </div></div>
+
+                    <div class="method-step"><div class="method-number">04</div><div><h3>Execução em até 7 dias</h3>
+                        <p>Com o planejamento aprovado, o time entra em ação. Em menos de 7 dias, o escritório já começa a receber os primeiros criativos, páginas e estruturas necessárias para colocar a operação para rodar.</p>
+                        <ul class="card-bullet-list">
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Primeiros criativos desenvolvidos.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Landing page estruturada para conversão.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Campanhas preparadas com base no plano definido.</li>
+                        </ul>
+                    </div></div>
+
+                    <div class="method-step"><div class="method-number">05</div><div><h3>Campanhas, relatórios e otimização semanal</h3>
+                        <p>Depois que os anúncios estão rodando, o trabalho continua. Toda semana analisamos custo, qualidade dos leads, comportamento dos contatos e pontos de ajuste no atendimento para melhorar a operação como um todo.</p>
+                        <ul class="card-bullet-list">
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Relatórios semanais de performance.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Análise da qualidade real dos leads.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Ajustes baseados em dados e feedback do escritório.</li>
+                        </ul>
+                    </div></div>
+
+                    <div class="method-step"><div class="method-number">06</div><div><h3>Time completo acompanhando a operação</h3>
+                        <p>O escritório não fica dependendo de uma pessoa só. A operação é acompanhada por um time com mais de 6 profissionais, envolvendo estratégia, tráfego, copy, design, landing pages, atendimento e análise de dados.</p>
+                        <ul class="card-bullet-list">
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suporte estratégico e operacional.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Especialistas em cada etapa do funil.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Acompanhamento para melhorar mídia, mensagem e conversão.</li>
+                        </ul>
+                    </div></div>
+                    <div class="mobile-only" style="margin-top:16px; width: 100%;">
+                        <a href="#diagnostico" class="shiny-cta js-open-form" style="width: 100%;"><span>Receber meu plano de ação gratuito</span></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1011,28 +1100,7 @@
         </div>
     </section>
 
-    <!-- VIDEOS -->
-    <section class="section section--proof" id="videos">
-        <div class="container">
-            <div class="section-header reveal" style="text-align:center;margin-bottom:60px;">
-                <div class="section-kicker">Depoimentos</div>
-                <h2 class="section-header__title">Advogados que já estruturaram o crescimento com a Scale</h2>
-                <p class="section-header__text" style="max-width:800px;margin:24px auto 0;">Veja como outros escritórios passaram a enxergar a operação com mais método, clareza e previsibilidade.</p>
-            </div>
-
-            <div class="videos__grid reveal">
-                <div class="video-card video-wrapper" data-video-id="hZxR3DadbTg">
-                    <img src="assets/capa-depoimento-bichara.png" alt="Depoimento Bichara Advogados" class="video-card__poster" loading="lazy" decoding="async">
-                    <div class="video-card__play"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg></div>
-                </div>
-                <div class="video-card video-wrapper" data-video-id="4V0ArJKXb-4">
-                    <img src="assets/capa-drvitor-miranda.png" alt="Depoimento Dr. Vitor Miranda" class="video-card__poster" loading="lazy" decoding="async">
-                    <div class="video-card__play"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/></svg></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <!-- EQUIPE -->
     <section class="section" id="supervisores">
         <div class="container">
