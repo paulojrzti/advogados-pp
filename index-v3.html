@@ -14,13 +14,15 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/scale-advogados/">
     <title>Scale Company | Estruturação Comercial para Escritórios de Advocacia</title>
-    <meta name="description" content="A Scale Company estrutura o caminho entre o cliente certo e escritórios de advocacia que ainda dependem de indicações, com Google Ads, Meta Ads, relatórios semanais e comunicação informativa alinhada às normas da OAB.">
+    <meta name="description" content="A Scale Company estrutura aquisição comercial para escritórios de advocacia com Google Ads, Meta Ads, relatórios semanais e comunicação informativa alinhada às normas da OAB.">
 
     <link rel="preload" as="image" href="assets/desktop.png" media="(min-width: 769px)">
     <link rel="preload" as="image" href="assets/mobile.png" media="(max-width: 768px)">
     <link rel="preload" as="image" href="assets/google-meta-dashboard-light.png">
     <link rel="preload" as="image" href="assets/google-meta-dashboard-dark.png">
+    <link rel="preload" as="image" href="assets/trafego-pago-google-meta-3d.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.youtube.com">
@@ -159,6 +161,17 @@
             box-shadow: 0 24px 60px rgba(12, 20, 36, 0.12);
         }
 
+        .section--light .proof-card--media {
+            background: #080a13;
+            color: #fff;
+            border-color: rgba(8, 17, 32, 0.22);
+            box-shadow: 0 28px 70px rgba(8, 17, 32, 0.24);
+        }
+
+        .section--light .proof-card--media .proof-label {
+            color: #67b3ff;
+        }
+
         .section--light .proof-card h3,
         .section--light .comparison-card h3,
         .section--light .channel-box strong,
@@ -173,6 +186,16 @@
         .section--light .comparison-list li,
         .section--light .dash-stat-box__label {
             color: #4b5a70;
+        }
+
+        .section--light .proof-card.proof-card--media h3,
+        .section--light .proof-card.proof-card--media strong {
+            color: #fff;
+        }
+
+        .section--light .proof-card.proof-card--media p,
+        .section--light .proof-card.proof-card--media .channel-box span {
+            color: rgba(233, 238, 247, 0.78);
         }
 
         .section--light .comparison-card--blue {
@@ -584,18 +607,83 @@
         .proof-number { font-size: clamp(54px, 7vw, 90px); line-height: .9; font-weight: 900; letter-spacing: -.08em; color: #fff; margin-bottom: 12px; }
         .proof-card h3 { font-size: 24px; line-height: 1.18; margin-bottom: 12px; }
         .proof-card p { color: var(--color-text-muted); font-size: 15px; line-height: 1.65; }
+        .proof-card--media { isolation: isolate; }
+        .proof-card--media::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(8, 10, 19, .94) 0%, rgba(8, 10, 19, .78) 48%, rgba(8, 10, 19, .42) 100%),
+                url('assets/google-meta-abstract-dark.png') right center / cover no-repeat;
+            opacity: .95;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .proof-card--media::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 76% 36%, rgba(0, 119, 255, .28), transparent 28%),
+                radial-gradient(circle at 18% 78%, rgba(124, 58, 237, .18), transparent 32%);
+            z-index: 0;
+            pointer-events: none;
+        }
+        .proof-card--media > * { position: relative; z-index: 1; }
+        .proof-card--channels { min-height: 340px; display: block; padding: 38px 34px; }
+        .proof-card--channels::before {
+            background:
+                linear-gradient(90deg, rgba(8, 10, 19, .94) 0%, rgba(8, 10, 19, .80) 42%, rgba(8, 10, 19, .14) 100%),
+                url('assets/trafego-pago-google-meta-3d.png') right center / contain no-repeat;
+            opacity: 1;
+        }
+        .channel-copy { position: relative; z-index: 2; max-width: 440px; }
         .channel-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; }
         .channel-box { border: 1px solid rgba(255, 255, 255, .07); background: rgba(0, 0, 0, .26); padding: 18px; }
+        .proof-card--media .channel-box { background: rgba(255, 255, 255, .075); border-color: rgba(255, 255, 255, .12); backdrop-filter: blur(10px); }
         .channel-box strong { display: block; font-size: 18px; margin-bottom: 8px; color: #fff; }
         .channel-box span { display: block; font-size: 13px; line-height: 1.55; color: var(--color-text-muted); }
+        .proof-card--visual::before {
+            content: '';
+            position: absolute;
+            right: -70px;
+            top: -60px;
+            width: 230px;
+            height: 230px;
+            background: url('assets/google-meta-dashboard-light.png') center / cover no-repeat;
+            opacity: .16;
+            filter: saturate(1.1);
+            transform: rotate(8deg);
+            pointer-events: none;
+            mask-image: radial-gradient(circle at center, black 0%, black 42%, transparent 76%);
+            -webkit-mask-image: radial-gradient(circle at center, black 0%, black 42%, transparent 76%);
+        }
+        .proof-card--visual > * { position: relative; z-index: 1; }
         .quality-loop { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 22px; }
         .loop-step { position: relative; padding: 16px 14px; border: 1px solid rgba(0, 119, 255, .16); background: rgba(0, 119, 255, .045); font-size: 13px; font-weight: 700; color: var(--color-text-secondary); min-height: 72px; display: flex; align-items: center; }
         .loop-step:not(:last-child)::after { content: '→'; position: absolute; right: -13px; top: 50%; transform: translateY(-50%); color: var(--color-accent); font-weight: 900; z-index: 2; }
 
         /* COMPARATIVO */
         .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-        .comparison-card { border: 1px solid rgba(255, 255, 255, .07); background: rgba(255, 255, 255, .018); padding: 30px; transition: all var(--transition); }
+        .comparison-card { position: relative; overflow: hidden; border: 1px solid rgba(255, 255, 255, .07); background: rgba(255, 255, 255, .018); padding: 30px; transition: all var(--transition); }
+        .comparison-card::after {
+            content: '';
+            position: absolute;
+            right: -92px;
+            top: -88px;
+            width: 250px;
+            height: 250px;
+            background: url('assets/google-meta-dashboard-light.png') center / cover no-repeat;
+            opacity: .11;
+            filter: saturate(1.08);
+            transform: rotate(8deg);
+            pointer-events: none;
+            mask-image: radial-gradient(circle at center, black 0%, black 42%, transparent 76%);
+            -webkit-mask-image: radial-gradient(circle at center, black 0%, black 42%, transparent 76%);
+        }
+        .comparison-card > * { position: relative; z-index: 1; }
         .comparison-card--blue { border-color: rgba(0, 119, 255, .36); background: linear-gradient(145deg, rgba(0, 119, 255, .105), rgba(255, 255, 255, .02)); }
+        .comparison-card--blue::after { opacity: .18; }
         .comparison-card h3 { font-size: 26px; margin-bottom: 20px; }
         .comparison-list { list-style: none; display: grid; gap: 16px; }
         .comparison-list li { display: flex; gap: 12px; color: var(--color-text-muted); font-size: 15px; line-height: 1.55; }
@@ -603,14 +691,27 @@
         .comparison-card--blue .comparison-list li::before { content: '✓'; color: var(--color-accent); }
 
         /* TEAM */
-        .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
-        .team-member { background: rgba(255, 255, 255, .018); border: 1px solid rgba(255, 255, 255, .06); padding: 18px; text-align: left; transition: all var(--transition); }
-        .team-member:hover { transform: translateY(-5px); border-color: rgba(0, 119, 255, .3); }
-        .team-member__photo-wrap { aspect-ratio: 1 / 1.12; overflow: hidden; background: #050505; margin-bottom: 18px; }
-        .team-member__photo { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.08); }
-        .team-member__name { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 4px; }
-        .team-member__role { font-size: 13px; color: var(--color-accent); font-weight: 800; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 10px; }
-        .team-member__desc { font-size: 14px; color: var(--color-text-muted); line-height: 1.55; }
+        .team-showcase { --team-gap: 22px; position: relative; width: 100vw; max-width: none; margin: 0 calc(50% - 50vw); padding: 22px 0 30px; overflow: hidden; }
+        .team-showcase::before, .team-showcase::after { content: ''; position: absolute; top: 0; bottom: 0; z-index: 3; width: min(18vw, 190px); pointer-events: none; }
+        .team-showcase::before { left: 0; background: linear-gradient(90deg, #020203 0%, rgba(2, 2, 3, .94) 30%, rgba(2, 2, 3, 0) 100%); }
+        .team-showcase::after { right: 0; background: linear-gradient(270deg, #020203 0%, rgba(2, 2, 3, .94) 30%, rgba(2, 2, 3, 0) 100%); }
+        .team-carousel-viewport { position: relative; overflow: hidden; padding: 30px 0; background: radial-gradient(ellipse at center, rgba(0, 119, 255, .095) 0%, rgba(0, 119, 255, .032) 34%, rgba(2, 2, 3, 0) 72%); box-shadow: inset 0 42px 86px rgba(0, 0, 0, .58), inset 0 -42px 86px rgba(0, 0, 0, .58); }
+        .team-carousel-track { display: flex; width: max-content; animation: teamMarquee 34s linear infinite; will-change: transform; }
+        .team-showcase:hover .team-carousel-track { animation-play-state: paused; }
+        .team-carousel-group { display: flex; gap: var(--team-gap); padding-right: var(--team-gap); flex-shrink: 0; }
+        .team-carousel-card { width: clamp(230px, 21vw, 310px); flex: 0 0 auto; overflow: hidden; border: 1px solid rgba(255, 255, 255, .075); background: linear-gradient(180deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .015)); box-shadow: inset 0 0 34px rgba(0, 0, 0, .46), 0 18px 48px rgba(0, 0, 0, .28); transition: transform .28s ease, border-color .28s ease, filter .28s ease; }
+        .team-carousel-card:hover { transform: translateY(-5px); border-color: rgba(0, 186, 255, .34); filter: brightness(1.04); }
+        .team-carousel-photo { aspect-ratio: 1 / 1; background: #050505; overflow: hidden; }
+        .team-carousel-photo img { width: 100%; height: 100%; object-fit: contain; object-position: center; filter: grayscale(.12) brightness(.86); transition: filter .3s ease, transform .3s ease; }
+        .team-carousel-card:hover img { filter: grayscale(0) brightness(1); transform: scale(1.03); }
+        .team-carousel-copy { min-height: 86px; padding: 14px 15px 16px; }
+        .team-carousel-name { color: #fff; font-size: 17px; line-height: 1.1; font-weight: 850; }
+        .team-carousel-role { margin-top: 7px; color: var(--color-accent); font-size: 10px; line-height: 1.35; font-weight: 850; text-transform: uppercase; letter-spacing: .13em; }
+        .team-carousel-card--plus { display: flex; min-height: 100%; align-items: center; justify-content: center; text-align: center; border-color: rgba(0, 186, 255, .24); background: linear-gradient(145deg, rgba(0, 186, 255, .13), rgba(255, 255, 255, .018)); }
+        .team-carousel-plus { padding: 38px 20px; }
+        .team-carousel-plus strong { display: block; color: #fff; font-size: clamp(48px, 5vw, 74px); line-height: .9; font-weight: 950; letter-spacing: 0; }
+        .team-carousel-plus span { display: block; margin-top: 12px; color: var(--color-text-secondary); font-size: 14px; font-weight: 850; line-height: 1.25; text-transform: uppercase; letter-spacing: .08em; }
+        @keyframes teamMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
         /* DASHBOARD */
         .dashboard-mockup { border: 1px solid rgba(0, 119, 255, .22); background: linear-gradient(145deg, rgba(255, 255, 255, .035), rgba(0, 119, 255, .035)); padding: 26px; box-shadow: 0 30px 80px rgba(0, 0, 0, .35); }
@@ -707,8 +808,10 @@
         .popup-radio input { display: none; }
         .popup-radio__box { width: 18px; height: 18px; border: 1px solid rgba(255, 255, 255, .22); display: inline-block; flex-shrink: 0; }
         .popup-radio input:checked + .popup-radio__box { background: var(--color-accent); border-color: var(--color-accent); box-shadow: inset 0 0 0 4px #07111f; }
-        .popup-check { display: flex; align-items: flex-start; gap: 10px; margin-top: 16px; color: var(--color-text-muted); font-size: 13px; line-height: 1.45; cursor: pointer; }
-        .popup-check input { margin-top: 3px; accent-color: var(--color-accent); }
+        .popup-check { display: flex; align-items: flex-start; gap: 16px; margin-top: 24px; padding: 18px; border: 2px solid rgba(0, 186, 255, .55); background: rgba(0, 186, 255, .12); color: #fff; font-size: 20px; font-weight: 800; line-height: 1.35; cursor: pointer; box-shadow: 0 16px 40px rgba(0, 119, 255, .18); }
+        .popup-check input { width: 28px; height: 28px; margin-top: 0; flex-shrink: 0; accent-color: var(--color-accent); }
+        .popup-consent-error { display: none; margin-top: 12px; padding: 12px 14px; border: 1px solid rgba(255, 88, 88, .55); background: rgba(255, 68, 68, .12); color: #fff; font-size: 15px; font-weight: 800; line-height: 1.35; }
+        .popup-consent-error.is-visible { display: block; }
         .popup-summary { display: grid; gap: 10px; margin-bottom: 16px; }
         .popup-summary__item { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; border-bottom: 1px solid rgba(255, 255, 255, .08); }
         .popup-summary__label { color: var(--color-text-muted); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
@@ -735,7 +838,7 @@
             .proof-card--large, .proof-card--wide { grid-column: span 12; }
             .proof-card--third { grid-column: span 6; }
             .dash-stats-grid { grid-template-columns: repeat(2, 1fr); }
-            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .team-carousel-card { width: 260px; }
         }
 
 
@@ -767,13 +870,24 @@
             .authority-bar { justify-content: center; gap: 12px; }
             .auth-item { font-size: 13px; }
             .surgical-card:hover { transform: none; }
+            .proof-card--channels { min-height: 440px; padding: 26px 22px; }
+            .proof-card--channels::before {
+                background:
+                    linear-gradient(180deg, rgba(8, 10, 19, .30) 0%, rgba(8, 10, 19, .84) 46%, rgba(8, 10, 19, .96) 100%),
+                    url('assets/trafego-pago-google-meta-3d.png') top center / contain no-repeat;
+            }
+            .channel-copy { max-width: none; }
             .channel-compare, .quality-loop { grid-template-columns: 1fr; }
             .loop-step:not(:last-child)::after { content: '↓'; right: 50%; top: auto; bottom: -18px; transform: translateX(50%); }
             .proof-card--third { grid-column: span 12; }
             .proof-card { min-height: auto; }
             .videos__grid { grid-template-columns: 1fr; max-width: 390px; gap: 24px; }
-            .team-grid { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; }
-            .team-member { min-width: 78%; scroll-snap-align: start; }
+            .team-showcase { --team-gap: 14px; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); }
+            .team-showcase::before, .team-showcase::after { width: 72px; }
+            .team-carousel-card { width: 210px; }
+            .team-carousel-copy { min-height: 94px; padding: 12px; }
+            .team-carousel-name { font-size: 15px; }
+            .team-carousel-role { font-size: 9px; letter-spacing: .10em; }
             .dash-stats-grid { grid-template-columns: 1fr; }
             .dashboard-mockup__header { align-items: flex-start; flex-direction: column; }
             .signal-item { grid-template-columns: 34px 1fr; }
@@ -813,7 +927,7 @@
                     Se você parar de trabalhar <span class="text-gradient">hoje</span>, seu escritório para <span class="text-gradient">junto?</span>
                 </h1>
                 <p class="hero__subheadline">
-                    Estruturamos o caminho entre o cliente certo e o seu escritório de advocacia, para que o crescimento não dependa ftotalmente de indicações, relacionamento e presença constante dos sócios.
+                    Estruturamos o caminho entre o cliente certo e o seu escritório de advocacia, para que o crescimento não dependa totalmente de indicações, relacionamento e presença constante dos sócios.
                 </p>
 
                 <div class="hero__ctas">
@@ -835,7 +949,7 @@
             <div class="section-header reveal" style="text-align:center;margin-bottom:60px;">
                 <div class="section-kicker">Depoimentos</div>
                 <h2 class="section-header__title">Advogados que já estruturaram o crescimento com a Scale</h2>
-                <p class="section-header__text" style="max-width:800px;margin:24px auto 0;">Veja como outros escritórios passaram a enxergar a operação com mais método, clareza e previsibilidade.</p>
+                <p class="section-header__text" style="max-width:800px;margin:24px auto 0;">Histórias de escritórios que saíram do improviso e passaram a acompanhar aquisição, atendimento e conversão com mais clareza.</p>
             </div>
 
             <div class="videos__grid reveal">
@@ -862,10 +976,10 @@
                         <span class="text-gradient">É depender de um fluxo que você não controla.</span>
                     </h2>
                     <p class="section-header__text" style="text-align:left;margin-left:0;max-width:540px;">
-                        A indicação continua sendo valiosa. Mas quando ela vira a principal fonte de entrada, o escritório cresce em ciclos: um mês a agenda está cheia; no outro, os sócios voltam a se perguntar de onde virão as próximas conversas.
+                        A indicação continua sendo valiosa. Mas quando ela vira a principal fonte de entrada, o escritório cresce em ciclos: um mês a agenda está cheia; no outro, ninguém sabe de onde virão as próximas conversas.
                     </p>
                     <div style="margin-top:34px;">
-                        <a href="#diagnostico" class="shiny-cta js-open-form"><span>Entender minha operação</span></a>
+                        <a href="#diagnostico" class="shiny-cta js-open-form"><span>Entender meu cenário</span></a>
                     </div>
                 </div>
 
@@ -876,17 +990,17 @@
                     <div class="surgical-card">
                         <div class="surgical-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                         <h4>Aquisição concentrada nos sócios</h4>
-                        <p>A entrada de novos clientes depende da rede pessoal dos sócios, não de uma operação do escritório.</p>
+                        <p>A entrada de novos clientes fica presa à rede pessoal dos sócios.</p>
                     </div>
                     <div class="surgical-card">
                         <div class="surgical-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m19 9-7 7-7-7"/></svg></div>
                         <h4>Agenda instável</h4>
-                        <p>Quando o volume cai, não existe clareza se o problema está na demanda, na mensagem, no canal ou no atendimento.</p>
+                        <p>Quando o volume cai, falta clareza sobre onde está a perda.</p>
                     </div>
                     <div class="surgical-card">
                         <div class="surgical-card__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></div>
                         <h4>Sócios sobrecarregados</h4>
-                        <p>Além de advogar, os sócios precisam aparecer, responder, vender, acompanhar e tentar entender o que funciona.</p>
+                        <p>Além de advogar, os sócios precisam aparecer, responder, vender e acompanhar tudo de perto.</p>
                     </div>
                 </div>
             </div>
@@ -899,20 +1013,20 @@
             <div class="split-visual">
                 <div class="section-header section-header--left reveal">
                     <h2 class="section-header__title">
-                        Quando não existe processo, o crescimento demora, e só vem depois de uma soma de tentativas soltas.
+                        Sem rotina comercial clara, crescimento vira tentativa.
                     </h2>
                     <p class="section-header__text">
-                        A consequência disso aparece na rotina do escritório:
+                        Isso aparece em pontos simples da rotina:
                     </p>
                     <ul class="bullet-list">
-                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg> <span>Campanhas sem estratégia e leitura de métricas.</span></li>
+                        <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg> <span>Campanhas avaliadas só por volume.</span></li>
                         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> <span>Oportunidades boas perdidas por demora no atendimento.</span></li>
                         <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> <span>Decisões tomadas com base no "feeling" do momento.</span></li>
                     </ul>
                 </div>
 
                 <div class="consequence-board reveal">
-                    <div class="board-header"><span>Leitura da operação</span><span>Sem método</span></div>
+                    <div class="board-header"><span>Pontos de perda</span><span>Sem método</span></div>
                     <div class="signal-list">
                         <div class="signal-item"><div class="signal-dot">01</div><div><strong>Nem todo contato é oportunidade</strong><span>Sem filtro, volume pode virar ruído para o escritório.</span></div><div class="signal-status">TRAVA</div></div>
                         <div class="signal-item"><div class="signal-dot">02</div><div><strong>Resposta lenta esfria a intenção</strong><span>Depois do clique, a condução define se a conversa avança ou se perde.</span></div><div class="signal-status">RISCO</div></div>
@@ -946,10 +1060,10 @@
                     <div class="section-kicker">Método Scale</div>
                     <h2 class="section-header__title" style="text-align:left;margin-left:0;">
                         Do primeiro contato aos primeiros anúncios:<br>
-                        <span class="text-gradient">uma operação construída com método.</span>
+                        <span class="text-gradient">um plano comercial executado por especialistas.</span>
                     </h2>
                     <p class="section-header__text" style="text-align:left;margin-left:0;">
-                        Antes de qualquer campanha ir ao ar, entendemos o cenário do escritório, organizamos a estratégia e colocamos um time completo para transformar verba em processo, dados e melhoria contínua.
+                        Antes de colocar verba em mídia, entendemos o cenário, definimos prioridades e preparamos cada etapa para transformar atenção em conversas qualificadas.
                     </p>
                     <div class="desktop-only" style="margin-top:34px;">
                         <a href="#diagnostico" class="shiny-cta js-open-form"><span>Receber meu plano de ação gratuito</span></a>
@@ -957,26 +1071,26 @@
                 </div>
 
                 <div class="method-steps reveal">
-                    <div class="method-step"><div class="method-number">01</div><div><h3>Diagnóstico inicial da operação</h3>
-                        <p>O primeiro passo é entender onde o escritório está hoje. Após o preenchimento do formulário, nosso SDR entra em contato para mapear o momento atual, os canais usados, os gargalos de aquisição e o histórico com marketing.</p>
+                    <div class="method-step"><div class="method-number">01</div><div><h3>Análise inicial</h3>
+                        <p>Depois do formulário, nosso SDR entra em contato para entender momento atual, canais usados, histórico com marketing e principais pontos de perda.</p>
                         <ul class="card-bullet-list">
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Entendimento inicial do cenário do escritório.</li>
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mapeamento dos principais gargalos da operação.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Leitura do cenário comercial.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Mapeamento das fontes de demanda.</li>
                             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Agendamento da reunião estratégica.</li>
                         </ul>
                     </div></div>
 
                     <div class="method-step"><div class="method-number">02</div><div><h3>Plano de ação gratuito</h3>
-                        <p>Depois do diagnóstico inicial, apresentamos um plano de ação personalizado para a realidade do escritório. Essa reunião mostra quais pontos precisam ser ajustados para melhorar atração, atendimento e conversão, antes de qualquer investimento em campanha.</p>
+                        <p>Na reunião estratégica, apresentamos um plano personalizado com ajustes para atração, atendimento e conversão antes de qualquer investimento em campanha.</p>
                         <ul class="card-bullet-list">
                             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Plano personalizado sem custo.</li>
                             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Direcionamento de canais, mensagens e funil.</li>
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Prioridades claras para evolução da operação.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Prioridades claras para os próximos passos.</li>
                         </ul>
                     </div></div>
 
-                    <div class="method-step"><div class="method-number">03</div><div><h3>Fechamento e kickoff estratégico</h3>
-                        <p>Com o projeto aprovado, fazemos uma reunião de kickoff para aprofundar a operação. É nesse momento que coletamos acessos, entendemos detalhes do atendimento, revisamos a comunicação e alinhamos o plano de execução com o time.</p>
+                    <div class="method-step"><div class="method-number">03</div><div><h3>Kickoff estratégico</h3>
+                        <p>Com o projeto aprovado, coletamos acessos, revisamos a comunicação, entendemos detalhes do atendimento e alinhamos o plano de execução com o time.</p>
                         <ul class="card-bullet-list">
                             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Coleta de acessos e informações essenciais.</li>
                             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Imersão no atendimento e na rotina comercial.</li>
@@ -984,8 +1098,8 @@
                         </ul>
                     </div></div>
 
-                    <div class="method-step"><div class="method-number">04</div><div><h3>Execução em até 7 dias</h3>
-                        <p>Com o planejamento aprovado, o time entra em ação. Em menos de 7 dias, o escritório já começa a receber os primeiros criativos, páginas e estruturas necessárias para colocar a operação para rodar.</p>
+                    <div class="method-step"><div class="method-number">04</div><div><h3>Primeiros ativos em até 7 dias</h3>
+                        <p>Com o planejamento aprovado, o escritório começa a receber criativos, página e estrutura de campanha para colocar o plano em movimento.</p>
                         <ul class="card-bullet-list">
                             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Primeiros criativos desenvolvidos.</li>
                             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Landing page estruturada para conversão.</li>
@@ -993,8 +1107,8 @@
                         </ul>
                     </div></div>
 
-                    <div class="method-step"><div class="method-number">05</div><div><h3>Campanhas, relatórios e otimização semanal</h3>
-                        <p>Depois que os anúncios estão rodando, o trabalho continua. Toda semana analisamos custo, qualidade dos leads, comportamento dos contatos e pontos de ajuste no atendimento para melhorar a operação como um todo.</p>
+                    <div class="method-step"><div class="method-number">05</div><div><h3>Mídia, relatórios e otimização semanal</h3>
+                        <p>Com os anúncios no ar, analisamos custo, qualidade dos contatos, comportamento das conversas e ajustes necessários no atendimento.</p>
                         <ul class="card-bullet-list">
                             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Relatórios semanais de performance.</li>
                             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Análise da qualidade real dos leads.</li>
@@ -1002,10 +1116,10 @@
                         </ul>
                     </div></div>
 
-                    <div class="method-step"><div class="method-number">06</div><div><h3>Time completo acompanhando a operação</h3>
-                        <p>O escritório não fica dependendo de uma pessoa só. A operação é acompanhada por um time com mais de 6 profissionais, envolvendo estratégia, tráfego, copy, design, landing pages, atendimento e análise de dados.</p>
+                    <div class="method-step"><div class="method-number">06</div><div><h3>Especialistas em cada frente</h3>
+                        <p>O escritório não fica dependendo de uma pessoa só. Mais de 6 profissionais atuam em estratégia, tráfego, copy, design, landing pages, atendimento e análise de dados.</p>
                         <ul class="card-bullet-list">
-                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suporte estratégico e operacional.</li>
+                            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Suporte estratégico e prático.</li>
                             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Especialistas em cada etapa do funil.</li>
                             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Acompanhamento para melhorar mídia, mensagem e conversão.</li>
                         </ul>
@@ -1022,9 +1136,9 @@
     <section class="section section--light" id="provas-operacao">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-kicker">Prova operacional</div>
-                <h2 class="section-header__title">Por que escritórios jurídicos estruturam a operação com a Scale</h2>
-                <p class="section-header__text">Porque crescer na advocacia exige leitura jurídica, canais bem definidos, comunicação informativa e acompanhamento real da qualidade das oportunidades.</p>
+                <div class="section-kicker">Provas práticas</div>
+                <h2 class="section-header__title">Por que escritórios jurídicos escolhem a Scale</h2>
+                <p class="section-header__text">Porque aquisição na advocacia exige leitura do mercado jurídico, canais bem definidos e comunicação sóbria do primeiro anúncio à primeira conversa.</p>
             </div>
             <div class="proof-grid reveal">
                 <div class="proof-card proof-card--large">
@@ -1034,37 +1148,39 @@
                     <p>Experiência com escritórios de diferentes áreas, portes e modelos de atuação, respeitando a forma como cada especialidade recebe demanda e conduz oportunidades.</p>
                 </div>
 
-                <div class="proof-card proof-card--wide">
-                    <div class="proof-label">Canais da operação</div>
-                    <h3>Google Ads e Meta Ads com papéis diferentes</h3>
-                    <p>Os canais não são tratados como a mesma coisa. Cada um entra com uma função dentro da jornada.</p>
-                    <div class="channel-compare">
-                        <div class="channel-box"><strong>Google Ads</strong><span>Capta pessoas que já estão pesquisando ativamente por orientação jurídica.</span></div>
-                        <div class="channel-box"><strong>Meta Ads</strong><span>Fortalece presença, posicionamento, lembrança e geração de demanda qualificada.</span></div>
+                <div class="proof-card proof-card--wide proof-card--media proof-card--channels">
+                    <div class="channel-copy">
+                        <div class="proof-label">Canais da operação</div>
+                        <h3>Google Ads e Meta Ads com papéis diferentes</h3>
+                        <p>Os canais não são tratados como a mesma coisa. Cada um entra com uma função dentro da jornada.</p>
+                        <div class="channel-compare">
+                            <div class="channel-box"><strong>Google Ads</strong><span>Capta pessoas que já estão pesquisando ativamente por orientação jurídica.</span></div>
+                            <div class="channel-box"><strong>Meta Ads</strong><span>Fortalece presença, posicionamento, lembrança e geração de demanda qualificada.</span></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="proof-card proof-card--wide">
+                <div class="proof-card proof-card--wide proof-card--visual">
                     <div class="proof-label">Qualidade acima de volume</div>
                     <h3>Não basta contar leads. É preciso entender o que chega.</h3>
-                    <p>A Scale acompanha relatórios semanais e pede feedback dos advogados sobre a qualidade dos contatos, para ajustar campanhas, mensagens e filtros.</p>
+                    <p>A Scale cruza relatórios semanais com o feedback dos advogados para ajustar campanhas, mensagens e filtros.</p>
                     <div class="quality-loop">
                         <div class="loop-step">Relatório semanal</div>
                         <div class="loop-step">Feedback dos advogados</div>
                         <div class="loop-step">Leitura da qualidade</div>
-                        <div class="loop-step">Ajuste da operação</div>
+                        <div class="loop-step">Ajuste contínuo</div>
                     </div>
                 </div>
 
-                <div class="proof-card proof-card--large">
+                <div class="proof-card proof-card--large proof-card--visual">
                     <div class="proof-label">Diagnóstico</div>
-                    <h3>Você entende onde está antes de decidir o próximo passo.</h3>
-                    <p>No diagnóstico, analisamos a operação atual, mostramos resultados e aprendizados da metodologia, montamos um plano de melhorias e apresentamos uma proposta caso faça sentido para ambos os lados.</p>
+                    <h3>Você entende onde está antes de investir.</h3>
+                    <p>A conversa inicial mostra o que já funciona, onde há desperdício e quais ajustes podem melhorar atração e conversão.</p>
                 </div>
 
                 <div class="proof-card proof-card--third"><div class="proof-label">Comunicação</div><h3>Informativa, não apelativa</h3><p>Abordagens alinhadas às normas da OAB, sem promessa de resultado, sem sensacionalismo e sem urgência artificial.</p></div>
                 <div class="proof-card proof-card--third"><div class="proof-label">Acompanhamento</div><h3>Semanal e prático</h3><p>Relatórios para ler custo, volume, qualidade, canais, mensagens e oportunidades de melhoria.</p></div>
-                <div class="proof-card proof-card--third"><div class="proof-label">Operação</div><h3>Menos improviso</h3><p>O escritório passa a enxergar crescimento como processo, não como campanha isolada.</p></div>
+                <div class="proof-card proof-card--third"><div class="proof-label">Processo</div><h3>Menos improviso</h3><p>O escritório passa a tomar decisões com rotina, dados e feedback do que chega.</p></div>
             </div>
         </div>
     </section>
@@ -1073,13 +1189,13 @@
     <section class="section section--light" id="comparativo">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-kicker">Antes e depois da operação</div>
-                <h2 class="section-header__title">O que muda quando crescimento deixa de ser tentativa</h2>
+                <div class="section-kicker">Antes e depois</div>
+                <h2 class="section-header__title">O que muda quando crescimento ganha rotina</h2>
             </div>
 
             <div class="comparison reveal">
                 <div class="comparison-card">
-                    <h3>Sem operação estruturada</h3>
+                    <h3>Sem estrutura comercial</h3>
                     <ul class="comparison-list">
                         <li>O escritório depende da indicação e da rede pessoal dos sócios.</li>
                         <li>Campanhas são avaliadas por volume, não pela qualidade das conversas.</li>
@@ -1088,9 +1204,9 @@
                     </ul>
                 </div>
                 <div class="comparison-card comparison-card--blue">
-                    <h3>Com operação acompanhada</h3>
+                    <h3>Com acompanhamento semanal</h3>
                     <ul class="comparison-list">
-                        <li>Google Ads e Meta Ads entram com funções claras dentro da operação.</li>
+                        <li>Google Ads e Meta Ads entram com funções claras na jornada.</li>
                         <li>Os leads são analisados por qualidade, intenção e avanço no atendimento.</li>
                         <li>Relatórios semanais orientam ajustes de campanha, mensagem e filtros.</li>
                         <li>O escritório ganha mais clareza para decidir onde melhorar.</li>
@@ -1105,16 +1221,34 @@
     <section class="section" id="supervisores">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-kicker">Equipe por trás da operação</div>
-                <h2 class="section-header__title">Seu escritório não cresce com improviso.<br><span class="text-accent-solid">Cresce quando existe uma operação por trás.</span></h2>
-                <p class="section-header__text">Você não precisa cuidar de campanha, página, criativo, atendimento e métricas enquanto toca a rotina jurídica. A Scale organiza esse processo com uma equipe olhando para estratégia, aquisição, conversão e otimização.</p>
+                <div class="section-kicker">Equipe por trás do projeto</div>
+                <h2 class="section-header__title">Seu escritório não cresce com improviso.<br><span class="text-accent-solid">Cresce quando existe time olhando para cada etapa.</span></h2>
+                <p class="section-header__text">Você não precisa cuidar de campanha, página, criativo, atendimento e métricas enquanto toca a rotina jurídica. A Scale reúne especialistas em estratégia, criação, relacionamento e projetos.</p>
             </div>
 
-            <div class="team-grid">
-                <div class="team-member reveal"><div class="team-member__photo-wrap"><img src="supervisores/image 60.webp" alt="Leonardo Carmo" class="team-member__photo" loading="lazy"></div><p class="team-member__name">Leonardo Carmo</p><p class="team-member__role">Estratégia & Posicionamento</p><p class="team-member__desc">Define a mensagem e o direcionamento da operação.</p></div>
-                <div class="team-member reveal"><div class="team-member__photo-wrap"><img src="supervisores/image 61.webp" alt="Matheus Malaquias" class="team-member__photo" loading="lazy"></div><p class="team-member__name">Matheus Malaquias</p><p class="team-member__role">Aquisição & Performance</p><p class="team-member__desc">Estrutura campanhas para atrair oportunidades com intenção real.</p></div>
-                <div class="team-member reveal"><div class="team-member__photo-wrap"><img src="supervisores/image 62.webp" alt="Isabella Trannin" class="team-member__photo" loading="lazy"></div><p class="team-member__name">Isabella Trannin</p><p class="team-member__role">Atendimento & Conversão</p><p class="team-member__desc">Acompanha gargalos entre o contato e o fechamento.</p></div>
-                <div class="team-member reveal"><div class="team-member__photo-wrap"><img src="supervisores/image 63.webp" alt="Pedro Costa" class="team-member__photo" loading="lazy"></div><p class="team-member__name">Pedro Costa</p><p class="team-member__role">Operação & Otimização</p><p class="team-member__desc">Analisa dados para melhorar qualidade, custo e previsibilidade.</p></div>
+            <div class="team-showcase reveal" aria-label="Supervisores e equipe Scale Company">
+                <div class="team-carousel-viewport">
+                    <div class="team-carousel-track">
+                        <div class="team-carousel-group">
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image 60.png" alt="Leonardo Carmo" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Leonardo Carmo</p><p class="team-carousel-role">CMO</p></div></article>
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image 61.png" alt="Matheus Malaquias" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Matheus Malaquias</p><p class="team-carousel-role">Supervisor do time de criação</p></div></article>
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image 62.png" alt="Isabela Trannin" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Isabela Trannin</p><p class="team-carousel-role">Account Manager</p></div></article>
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image 63.png" alt="Pedro Henrique" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Pedro Henrique</p><p class="team-carousel-role">Supervisor de Projetos</p></div></article>
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image 64.png" alt="Hyandra Oliveira" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Hyandra Oliveira</p><p class="team-carousel-role">Account Manager</p></div></article>
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image_65.png" alt="Pedro Henryque" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Pedro Henryque</p><p class="team-carousel-role">Supervisor de Projetos</p></div></article>
+                            <article class="team-carousel-card team-carousel-card--plus"><p class="team-carousel-plus"><strong>+30</strong><span>Profissionais</span></p></article>
+                        </div>
+                        <div class="team-carousel-group" aria-hidden="true">
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image 60.png" alt="" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Leonardo Carmo</p><p class="team-carousel-role">CMO</p></div></article>
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image 61.png" alt="" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Matheus Malaquias</p><p class="team-carousel-role">Supervisor do time de criação</p></div></article>
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image 62.png" alt="" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Isabela Trannin</p><p class="team-carousel-role">Account Manager</p></div></article>
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image 63.png" alt="" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Pedro Henrique</p><p class="team-carousel-role">Supervisor de Projetos</p></div></article>
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image 64.png" alt="" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Hyandra Oliveira</p><p class="team-carousel-role">Account Manager</p></div></article>
+                            <article class="team-carousel-card"><div class="team-carousel-photo"><img src="supervisores/image_65.png" alt="" loading="lazy"></div><div class="team-carousel-copy"><p class="team-carousel-name">Pedro Henryque</p><p class="team-carousel-role">Supervisor de Projetos</p></div></article>
+                            <article class="team-carousel-card team-carousel-card--plus"><p class="team-carousel-plus"><strong>+30</strong><span>Profissionais</span></p></article>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1125,12 +1259,12 @@
             <div class="section-header reveal">
                 <div class="section-kicker">Controle de qualidade</div>
                 <h2 class="section-header__title">Você não precisa de qualquer lead.<br><span class="text-gradient">Precisa entender quais oportunidades merecem atenção.</span></h2>
-                <p class="section-header__text">Mais contatos nem sempre significam melhores conversas. A operação precisa mostrar o que gera demanda, o que trava e onde ajustar.</p>
+                <p class="section-header__text">Mais contatos nem sempre significam melhores conversas. O acompanhamento mostra o que gera demanda, o que trava e onde ajustar.</p>
             </div>
 
             <div class="dashboard-mockup reveal">
                 <div class="dashboard-mockup__header">
-                    <div><div class="dash-stat-box__label">Painel de acompanhamento</div><strong>Leitura semanal da operação</strong></div>
+                    <div><div class="dash-stat-box__label">Painel de acompanhamento</div><strong>Leitura semanal de performance</strong></div>
                     <div class="auth-item" style="color:#425066;"><span style="color:#10b981;font-weight:900;">●</span> Monitoramento ativo</div>
                 </div>
                 <div class="dash-stats-grid">
@@ -1153,7 +1287,7 @@
                         <div class="oab-strip__icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                         <h3>Comunicação para advocacia precisa gerar confiança sem parecer apelo comercial.</h3>
                     </div>
-                    <p>A Scale constrói campanhas com abordagem informativa, linguagem sóbria e atenção às normas da OAB. A operação é pensada para posicionar o escritório com clareza, sem promessa de resultado, sem sensacionalismo e sem comunicação agressiva.</p>
+                    <p>A Scale constrói campanhas com abordagem informativa, linguagem sóbria e atenção às normas da OAB. A comunicação posiciona o escritório com clareza, sem promessa de resultado, sem sensacionalismo e sem agressividade.</p>
                     <div class="tag-row"><span class="tag">Linguagem informativa</span><span class="tag">Sem promessa de resultado</span><span class="tag">Sem sensacionalismo</span><span class="tag">Alinhada às normas da OAB</span></div>
                 </div>
                 <div class="oab-strip__actions"><a href="#diagnostico" class="shiny-cta js-open-form"><span>Solicitar diagnóstico</span></a></div>
@@ -1167,7 +1301,7 @@
             <div class="section-header reveal">
                 <div class="section-kicker">Percepção de quem acompanha</div>
                 <h2 class="section-header__title">Quando existe método, a percepção muda.</h2>
-                <p class="section-header__text">A operação deixa de ser uma tentativa solta e passa a ser acompanhada com clareza: o que gera conversa, o que trava e onde melhorar.</p>
+                <p class="section-header__text">O projeto deixa de ser uma tentativa solta e passa a mostrar, semana a semana, o que gera conversa e onde melhorar.</p>
             </div>
 
             <div class="stagger-wrapper reveal">
@@ -1184,10 +1318,10 @@
     <section class="cta-final section" id="cta-final">
         <div class="container">
             <div class="reveal">
-                <h2 class="cta-final__title">Seu escritório pode continuar dependendo da próxima indicação.<br><span class="text-gradient">Ou pode entender como estruturar uma operação mais previsível.</span></h2>
-                <p class="cta-final__text">No diagnóstico, analisamos a operação atual, mostramos resultados e aprendizados da metodologia, montamos um plano de melhorias e apresentamos uma proposta caso faça sentido para ambos os lados.</p>
-                <a href="#diagnostico" class="shiny-cta js-open-form" id="cta-final-btn"><span>Solicitar diagnóstico da operação <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
-                <p class="cta-final__microcopy">Conversa inicial para entender cenário, desafios e possíveis caminhos de estruturação.</p>
+                <h2 class="cta-final__title">Seu escritório pode continuar dependendo da próxima indicação.<br><span class="text-gradient">Ou pode enxergar quais ajustes abrem novas conversas.</span></h2>
+                <p class="cta-final__text">Na conversa inicial, avaliamos cenário, canais, atendimento e possíveis melhorias. Se fizer sentido para ambos os lados, apresentamos uma proposta de execução.</p>
+                <a href="#diagnostico" class="shiny-cta js-open-form" id="cta-final-btn"><span>Solicitar diagnóstico <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a>
+                <p class="cta-final__microcopy">Primeiro passo para entender cenário, desafios e próximos caminhos.</p>
             </div>
         </div>
     </section>
@@ -1230,19 +1364,20 @@
                 </div>
 
                 <div class="popup-step" data-step="4">
-                    <label class="popup-label">Para entendermos o porte da operação, qual é a faixa aproximada de faturamento mensal do escritório?</label>
+                    <label class="popup-label">Para entendermos o porte do escritório, qual é a faixa aproximada de faturamento mensal?</label>
                     <div class="popup-radio-group" id="lead-faturamento">
-                        <label class="popup-radio"><input type="radio" name="faturamento" value="Menos de R$ 30 mil"><span class="popup-radio__box"></span>Menos de R$ 30 mil</label>
-                        <label class="popup-radio"><input type="radio" name="faturamento" value="Entre R$ 30 mil e R$ 50 mil"><span class="popup-radio__box"></span>Entre R$ 30 mil e R$ 50 mil</label>
-                        <label class="popup-radio"><input type="radio" name="faturamento" value="Entre R$ 50 mil e R$ 100 mil"><span class="popup-radio__box"></span>Entre R$ 50 mil e R$ 100 mil</label>
-                        <label class="popup-radio"><input type="radio" name="faturamento" value="Mais de R$ 100 mil"><span class="popup-radio__box"></span>Mais de R$ 100 mil</label>
+                        <label class="popup-radio"><input type="radio" name="faturamento" value="menos_30k" data-label="Menos de R$ 30 mil"><span class="popup-radio__box"></span>Menos de R$ 30 mil</label>
+                        <label class="popup-radio"><input type="radio" name="faturamento" value="30_50k" data-label="Entre R$ 30 mil e R$ 50 mil"><span class="popup-radio__box"></span>Entre R$ 30 mil e R$ 50 mil</label>
+                        <label class="popup-radio"><input type="radio" name="faturamento" value="50_100k" data-label="Entre R$ 50 mil e R$ 100 mil"><span class="popup-radio__box"></span>Entre R$ 50 mil e R$ 100 mil</label>
+                        <label class="popup-radio"><input type="radio" name="faturamento" value="100k_plus" data-label="Mais de R$ 100 mil"><span class="popup-radio__box"></span>Mais de R$ 100 mil</label>
                     </div>
                     <div class="popup-actions popup-actions--split"><button class="popup-btn popup-btn--back" id="btn-back-4">Voltar</button><button class="popup-btn popup-btn--next" id="btn-next-4">Continuar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button></div>
                 </div>
 
                 <div class="popup-step" data-step="5">
                     <div class="popup-summary" id="popup-summary"></div>
-                    <label class="popup-check"><input type="checkbox" id="lead-consent"><span>Eu concordo em receber contato da Scale Company para o diagnóstico da operação e aceito a política de privacidade.</span></label>
+                    <label class="popup-check"><input type="checkbox" id="lead-consent"><span>Eu concordo em receber contato da Scale Company sobre o diagnóstico e aceito a política de privacidade.</span></label>
+                    <p class="popup-consent-error" id="lead-consent-error" role="alert">Para enviar, marque o aceite de contato e política de privacidade.</p>
                     <div class="popup-actions popup-actions--split" style="margin-top: 24px;"><button class="popup-btn popup-btn--back" id="btn-back-5">Voltar</button><button class="popup-btn popup-btn--submit" id="btn-submit">Enviar <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></button></div>
                 </div>
 
@@ -1375,12 +1510,53 @@
                 return String(str).replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag]));
             }
 
+            function digitsOnly(str) {
+                return String(str || '').replace(/\D/g, '');
+            }
+
+            function normalizeArrobaHandle(raw) {
+                const handle = String(raw || '').trim().replace(/^@+/, '');
+                return handle ? `@${handle}` : '';
+            }
+
+            function generateLeadId() {
+                if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+                    return window.crypto.randomUUID();
+                }
+                return `lead-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+            }
+
+            function getAttributionParams() {
+                const params = new URLSearchParams(window.location.search);
+                return {
+                    utm_source: params.get('utm_source') || '',
+                    utm_medium: params.get('utm_medium') || '',
+                    utm_campaign: params.get('utm_campaign') || '',
+                    utm_content: params.get('utm_content') || '',
+                    utm_term: params.get('utm_term') || '',
+                    gclid: params.get('gclid') || '',
+                    fbclid: params.get('fbclid') || ''
+                };
+            }
+
+            function getCreatedAt() {
+                return new Date().toLocaleString('pt-BR', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    timeZone: 'America/Sao_Paulo'
+                }).replace(',', ' às');
+            }
+
             function buildSummary() {
                 const summary = document.getElementById('popup-summary');
                 const nome = document.getElementById('lead-nome').value || '—';
                 const whatsapp = document.getElementById('lead-whatsapp').value || '—';
                 const instagram = document.getElementById('lead-instagram').value || '—';
-                const faturamento = document.querySelector('input[name="faturamento"]:checked')?.value || '—';
+                const faturamentoRadio = document.querySelector('input[name="faturamento"]:checked');
+                const faturamento = faturamentoRadio?.getAttribute('data-label') || '—';
                 summary.innerHTML = `
                     <div class="popup-summary__item"><span class="popup-summary__label">Nome</span><span class="popup-summary__value">${escapeHTML(nome)}</span></div>
                     <div class="popup-summary__item"><span class="popup-summary__label">WhatsApp</span><span class="popup-summary__value">${escapeHTML(whatsapp)}</span></div>
@@ -1390,33 +1566,59 @@
 
             document.getElementById('btn-submit').addEventListener('click', async () => {
                 const consent = document.getElementById('lead-consent');
-                if (consent && !consent.checked) return;
+                const consentError = document.getElementById('lead-consent-error');
+                if (consent && !consent.checked) {
+                    consentError?.classList.add('is-visible');
+                    consent.parentElement.style.animation = 'none';
+                    consent.parentElement.offsetHeight;
+                    consent.parentElement.style.animation = 'shake 0.4s ease';
+                    setTimeout(() => consent.parentElement.style.animation = '', 400);
+                    consent.focus();
+                    return;
+                }
+                consentError?.classList.remove('is-visible');
 
                 const submitBtn = document.getElementById('btn-submit');
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<span style="display:inline-flex;align-items:center;gap:8px;">Enviando...</span>';
 
-                const data = {
-                    nome: document.getElementById('lead-nome').value,
-                    whatsapp: document.getElementById('lead-whatsapp').value,
-                    instagram: document.getElementById('lead-instagram').value,
-                    faturamento: document.querySelector('input[name="faturamento"]:checked')?.value || ''
+                const telefone = document.getElementById('lead-whatsapp').value;
+                const faturamentoRadio = document.querySelector('input[name="faturamento"]:checked');
+                const payload = {
+                    lead_id: generateLeadId(),
+                    nome: document.getElementById('lead-nome').value.trim(),
+                    perfilArroba: normalizeArrobaHandle(document.getElementById('lead-instagram').value),
+                    telefone,
+                    telefoneDigits: digitsOnly(telefone),
+                    faturamento: faturamentoRadio?.value || '',
+                    faturamentoLabel: faturamentoRadio?.getAttribute('data-label') || '',
+                    consentiuContato: true,
+                    origem: 'lead-form-modal',
+                    form_name: 'advogados_lp',
+                    pagina: '/advogados',
+                    criadoEm: getCreatedAt(),
+                    ...getAttributionParams()
                 };
 
                 try {
                     await fetch('https://hook.us1.make.com/bk8vzf7u1d7m0fueemgfqemutft9k6ve', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(data),
-                        mode: 'no-cors'
+                        body: JSON.stringify(payload)
                     });
                 } catch (err) {
                     console.error('Webhook error:', err);
                 }
 
                 window.dataLayer = window.dataLayer || [];
-                window.dataLayer.push({ event: 'lead_submit_success' });
+                window.dataLayer.push({ event: 'lead_submit_success', ...payload });
                 goToStep(6);
+            });
+
+            document.getElementById('lead-consent')?.addEventListener('change', (event) => {
+                if (event.target.checked) {
+                    document.getElementById('lead-consent-error')?.classList.remove('is-visible');
+                }
             });
 
             const revealEls = document.querySelectorAll('.reveal');
