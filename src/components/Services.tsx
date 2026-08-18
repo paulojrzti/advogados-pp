@@ -42,6 +42,7 @@ export default function Services() {
   const maxPage = Math.max(SERVICES.length - visibleCount, 0);
   const [rawPage, setPage] = useState(0);
   const page = Math.min(rawPage, maxPage);
+  const mobileService = SERVICES[page];
 
   const stepPercent = 100 / visibleCount;
 
@@ -71,7 +72,23 @@ export default function Services() {
         </a>
       </div>
 
-      <div className="relative z-10 overflow-hidden">
+      <div className="relative z-10 sm:hidden">
+        <div className="group relative aspect-[4/5] overflow-hidden">
+          <Image
+            src={mobileService.image}
+            alt={mobileService.label}
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+          <span className="absolute bottom-5 left-5 text-base font-medium text-white">
+            {mobileService.label}
+          </span>
+        </div>
+      </div>
+
+      <div className="relative z-10 hidden overflow-hidden sm:block">
         <div
           className="flex gap-4 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
           style={{ transform: `translateX(-${page * stepPercent}%)` }}

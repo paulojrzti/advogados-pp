@@ -101,7 +101,7 @@ export default function Reviews() {
             <article
               key={review.name}
               data-review-card
-              className={`flex min-h-80 shrink-0 snap-start flex-col justify-between p-7 sm:basis-[calc((100%-1rem)/2)] sm:p-8 lg:basis-[calc((100%-2rem)/3)] lg:p-9 ${
+              className={`flex min-h-80 w-full min-w-0 shrink-0 basis-full snap-start flex-col justify-between p-7 sm:w-auto sm:basis-[calc((100%-1rem)/2)] sm:p-8 lg:basis-[calc((100%-2rem)/3)] lg:p-9 ${
                 isBlue ? "bg-[#3A43E3] text-white" : "bg-white text-neutral-900"
               }`}
             >

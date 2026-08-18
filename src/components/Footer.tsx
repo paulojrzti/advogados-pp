@@ -65,7 +65,7 @@ export default function Footer() {
             <span className="font-canela text-xs font-bold uppercase tracking-wider text-[#588DFF]">
               Menu
             </span>
-            <nav className="mt-4 flex w-40 flex-col gap-3 text-sm text-white/70">
+            <nav className="mt-4 flex w-full flex-col gap-3 text-sm text-white/70 lg:w-40">
               {MENU_LINKS.map((link) => (
                 <a
                   key={link.label}
@@ -79,7 +79,7 @@ export default function Footer() {
             </nav>
           </div>
 
-          <div className="flex gap-3 lg:flex-col">
+          <div className="flex w-full justify-between gap-3 lg:w-auto lg:flex-col lg:justify-start">
             {SOCIAL_LINKS.map(({ label, href, Icon }) => (
               <a
                 key={label}
@@ -95,7 +95,7 @@ export default function Footer() {
       </div>
 
       <div>
-        <div className="relative z-10 flex -translate-y-6 flex-col items-start gap-4 px-[2%] pt-4 pb-0 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between sm:gap-0">
+        <div className="relative z-10 flex -translate-y-6 flex-col items-center gap-4 px-[2%] pt-4 pb-0 text-center text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-left">
           <span>© 2026 - Scale company</span>
           <a
             href="https://www.letsmarketing.com.br/politica-de-privacidade/"

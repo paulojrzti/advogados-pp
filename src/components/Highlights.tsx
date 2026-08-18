@@ -104,13 +104,13 @@ function HighlightCard({
       className={`reveal ${visible ? "is-visible" : ""}`}
     >
       <div
-        className={`group flex overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 ${
+        className={`group flex flex-col overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1.5 sm:flex-row ${
           isAccent
             ? "bg-[#3A43E3] hover:shadow-[0_24px_48px_-16px_rgba(58,67,227,0.5)]"
             : "bg-white hover:shadow-[0_24px_48px_-16px_rgba(0,0,0,0.15)]"
         }`}
       >
-        <div className="relative flex flex-1 flex-col justify-between gap-6 overflow-hidden p-6 sm:p-8">
+        <div className="relative order-2 flex flex-1 flex-col justify-between gap-6 overflow-hidden p-6 sm:order-1 sm:p-8">
           <span
             aria-hidden="true"
             className={`font-canela pointer-events-none absolute -bottom-4 left-4 select-none whitespace-nowrap text-6xl font-normal uppercase leading-none tracking-tight transition-all duration-500 ease-out group-hover:-translate-y-1 group-hover:scale-105 sm:text-7xl ${
@@ -143,8 +143,8 @@ function HighlightCard({
         </div>
 
         <div
-          className={`relative hidden w-1/3 shrink-0 overflow-hidden sm:block ${
-            item.image ? "m-2 aspect-square self-center" : ""
+          className={`relative order-1 w-full shrink-0 overflow-hidden sm:order-2 sm:w-1/3 ${
+            item.image ? "aspect-[16/9] sm:m-2 sm:aspect-square sm:self-center" : ""
           } ${
             item.image ? (item.imageFit === "contain" ? "bg-transparent" : "bg-black") : isAccent ? "bg-neutral-200" : "bg-[#3A43E3]"
           }`}
@@ -154,7 +154,7 @@ function HighlightCard({
               src={item.image}
               alt={item.imageAlt ?? ""}
               fill
-              sizes="(min-width: 1024px) 17vw, 33vw"
+              sizes="(min-width: 1024px) 17vw, (min-width: 640px) 33vw, 100vw"
               className={item.imageFit === "contain" ? "object-contain p-4" : "object-cover"}
             />
           )}

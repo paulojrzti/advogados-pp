@@ -101,7 +101,7 @@ export default function Mission() {
   return (
     <section className="bg-[#ECE7DF] px-6 py-20 sm:px-8 lg:px-[5%] lg:py-28">
       <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
-        <div>
+        <div className="order-2">
           <span className="font-canela text-xs font-bold uppercase tracking-wider text-[#3A43E3]">
             Nossa missão
           </span>
@@ -127,7 +127,7 @@ export default function Mission() {
           </div>
         </div>
 
-        <div className="relative aspect-[4/3] overflow-hidden sm:aspect-[16/10] lg:aspect-[4/3]">
+        <div className="order-1 relative aspect-[4/3] overflow-hidden sm:aspect-[16/10] lg:aspect-[4/3]">
           <Image
             src="/equipe.jpeg"
             alt="Time Scale Company"

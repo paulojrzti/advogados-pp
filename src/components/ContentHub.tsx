@@ -57,14 +57,14 @@ export default function ContentHub() {
           <Link
             key={article.title}
             href={article.href}
-            className="group flex min-h-36 overflow-hidden bg-white transition-transform duration-300 hover:-translate-y-1"
+            className="group flex flex-col overflow-hidden bg-white transition-transform duration-300 hover:-translate-y-1 sm:min-h-36 sm:flex-row"
           >
-            <div className="relative min-h-36 w-32 shrink-0 overflow-hidden bg-neutral-100 sm:w-44">
+            <div className="relative aspect-[16/10] w-full shrink-0 overflow-hidden bg-neutral-100 sm:min-h-36 sm:w-44 sm:aspect-auto">
               <Image
                 src={article.image}
                 alt=""
                 fill
-                sizes="(min-width: 640px) 11rem, 8rem"
+                sizes="(min-width: 640px) 11rem, 100vw"
                 className="object-cover"
               />
             </div>

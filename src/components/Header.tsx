@@ -26,6 +26,7 @@ type HeaderProps = {
 
 export default function Header({ theme = "dark", logoSrc }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const isLight = theme === "light";
 
   useEffect(() => {
@@ -39,7 +40,7 @@ export default function Header({ theme = "dark", logoSrc }: HeaderProps) {
     <header
       style={{ "--hero-delay": "0.1s" } as CSSProperties}
       className={`hero-anim-fade fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled
+        scrolled || menuOpen
           ? isLight
             ? "bg-white/85 shadow-sm backdrop-blur-md"
             : "bg-black/80 shadow-lg backdrop-blur-md"
@@ -81,7 +82,72 @@ export default function Header({ theme = "dark", logoSrc }: HeaderProps) {
             </a>
           ))}
         </div>
+
+        <button
+          type="button"
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-navigation"
+          onClick={() => setMenuOpen((open) => !open)}
+          className={`flex h-10 w-10 items-center justify-center lg:hidden ${
+            isLight ? "text-neutral-900" : "text-white"
+          }`}
+        >
+          <span className="relative block h-4 w-6" aria-hidden="true">
+            <span
+              className={`absolute left-0 top-1 h-px w-full bg-current transition-transform duration-300 ${
+                menuOpen ? "translate-y-1 rotate-45" : ""
+              }`}
+            />
+            <span
+              className={`absolute bottom-1 left-0 h-px w-full bg-current transition-transform duration-300 ${
+                menuOpen ? "-translate-y-1 -rotate-45" : ""
+              }`}
+            />
+          </span>
+        </button>
       </div>
+
+      <nav
+        id="mobile-navigation"
+        aria-label="Menu principal"
+        className={`overflow-hidden transition-[max-height,opacity] duration-300 lg:hidden ${
+          menuOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
+        } ${isLight ? "bg-white/85 backdrop-blur-md" : "bg-black/80 backdrop-blur-md"}`}
+      >
+        <div className="px-6 pb-8 pt-3 sm:px-8">
+          <div className={`border-t pt-4 ${isLight ? "border-neutral-200" : "border-white/15"}`}>
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className={`flex items-center justify-between py-4 text-sm font-medium tracking-wider transition-colors ${
+                  isLight
+                    ? "border-b border-neutral-200 text-neutral-900"
+                    : "border-b border-white/15 text-white"
+                }`}
+              >
+                {link.label}
+                <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
+
+          <div className="mt-6 flex items-center gap-4">
+            {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                className={isLight ? "text-neutral-700" : "text-white/80"}
+              >
+                <Icon className="h-5 w-5" />
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
     </header>
   );
 }

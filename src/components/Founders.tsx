@@ -66,7 +66,37 @@ export default function Founders() {
       </div>
 
       <div className="px-6 sm:px-8 lg:px-[5%]">
-        <div className="flex flex-wrap">
+        <div className="lg:hidden">
+          {FOUNDERS.map((founder, index) => (
+            <article key={`${founder.id}-mobile`} className="border-t border-neutral-300 py-7 first:border-t-0 first:pt-0">
+              <div className="relative aspect-[481/750] w-full overflow-hidden">
+                {founder.image ? (
+                  <Image
+                    src={founder.image}
+                    alt={founder.name}
+                    fill
+                    className="object-cover"
+                    priority={index === 0}
+                  />
+                ) : (
+                  <div className="flex h-full items-end bg-[#3A43E3] p-6 text-white">
+                    <span className="font-canela text-6xl leading-none">LC</span>
+                  </div>
+                )}
+              </div>
+
+              <div className="pt-6">
+                <p className="font-canela text-2xl text-neutral-900">{founder.name}</p>
+                <p className="font-canela mt-2 text-xs font-semibold uppercase tracking-wider text-[#3A43E3]">
+                  {founder.role}
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-neutral-600">{founder.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="hidden lg:flex lg:flex-wrap">
           {FOUNDERS.map((founder, index) => (
             <div
               key={founder.id}
@@ -91,11 +121,11 @@ export default function Founders() {
           ))}
         </div>
 
-        <div className="flex flex-wrap border-t border-neutral-300 sm:divide-x sm:divide-neutral-300">
+        <div className="hidden border-t border-neutral-300 lg:flex lg:flex-wrap lg:divide-x lg:divide-neutral-300">
           {FOUNDERS.map((founder, index) => (
             <div
               key={`${founder.id}-caption-${index}`}
-              className="w-1/2 border-b border-neutral-300 py-8 pr-6 sm:w-1/4 sm:border-b-0 sm:pl-6 sm:first:pl-0"
+              className="w-1/4 py-8 pl-6 first:pl-0"
             >
               <p className="font-canela text-xl text-neutral-900">{founder.name}</p>
               <p className="font-canela mt-1 text-xs font-semibold uppercase tracking-wider text-[#3A43E3]">
