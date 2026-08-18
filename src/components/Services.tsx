@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowUpRightIcon, ChevronRightIcon } from "@/components/icons";
 
@@ -42,9 +42,32 @@ export default function Services() {
   const maxPage = Math.max(SERVICES.length - visibleCount, 0);
   const [rawPage, setPage] = useState(0);
   const page = Math.min(rawPage, maxPage);
-  const mobileService = SERVICES[page];
+  const carouselRef = useRef<HTMLDivElement>(null);
 
-  const stepPercent = 100 / visibleCount;
+  function goToPage(nextPage: number) {
+    const carousel = carouselRef.current;
+    const card = carousel?.querySelector<HTMLElement>("[data-service-card]");
+    const targetPage = Math.max(0, Math.min(nextPage, maxPage));
+
+    setPage(targetPage);
+    if (!carousel || !card) return;
+
+    const gap = Number.parseFloat(window.getComputedStyle(carousel).columnGap) || 0;
+    carousel.scrollTo({
+      left: targetPage * (card.offsetWidth + gap),
+      behavior: "smooth",
+    });
+  }
+
+  function syncCurrentPage() {
+    const carousel = carouselRef.current;
+    const card = carousel?.querySelector<HTMLElement>("[data-service-card]");
+    if (!carousel || !card) return;
+
+    const gap = Number.parseFloat(window.getComputedStyle(carousel).columnGap) || 0;
+    const nextPage = Math.max(0, Math.min(Math.round(carousel.scrollLeft / (card.offsetWidth + gap)), maxPage));
+    setPage((currentPage) => (currentPage === nextPage ? currentPage : nextPage));
+  }
 
   return (
     <section className="relative overflow-hidden bg-[#050814] px-6 py-20 sm:px-8 lg:px-[5%] lg:py-28">
@@ -72,46 +95,32 @@ export default function Services() {
         </a>
       </div>
 
-      <div className="relative z-10 sm:hidden">
-        <div className="group relative aspect-[4/5] overflow-hidden">
-          <Image
-            src={mobileService.image}
-            alt={mobileService.label}
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-          <span className="absolute bottom-5 left-5 text-base font-medium text-white">
-            {mobileService.label}
-          </span>
-        </div>
-      </div>
-
-      <div className="relative z-10 hidden overflow-hidden sm:block">
-        <div
-          className="flex gap-4 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          style={{ transform: `translateX(-${page * stepPercent}%)` }}
-        >
-          {SERVICES.map((service) => (
-            <div
-              key={service.key}
-              className="group relative aspect-[4/5] shrink-0 overflow-hidden rounded-none"
-              style={{ flexBasis: `calc(${stepPercent}% - ${(16 * (visibleCount - 1)) / visibleCount}px)` }}
-            >
-              <Image
-                src={service.image}
-                alt={service.label}
-                fill
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-              <span className="absolute bottom-4 left-4 text-sm font-medium text-white">
-                {service.label}
-              </span>
-            </div>
-          ))}
-        </div>
+      <div
+        ref={carouselRef}
+        aria-label="Serviços da Scale"
+        onScroll={syncCurrentPage}
+        className="relative z-10 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      >
+        {SERVICES.map((service) => (
+          <article
+            key={service.key}
+            data-service-card
+            className="group relative aspect-[4/5] w-full min-w-0 shrink-0 basis-full snap-start overflow-hidden sm:basis-[calc((100%-1rem)/2)] lg:basis-[calc((100%-3rem)/4)]"
+          >
+            <Image
+              src={service.image}
+              alt={service.label}
+              fill
+              quality={90}
+              sizes="(min-width: 1024px) 24vw, (min-width: 640px) 48vw, 100vw"
+              className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+            <span className="absolute bottom-5 left-5 text-base font-medium text-white sm:bottom-4 sm:left-4 sm:text-sm">
+              {service.label}
+            </span>
+          </article>
+        ))}
       </div>
 
       {maxPage > 0 && (
@@ -121,7 +130,7 @@ export default function Services() {
               <button
                 key={i}
                 type="button"
-                onClick={() => setPage(i)}
+                onClick={() => goToPage(i)}
                 aria-label={`Página ${i + 1}`}
                 className={`h-2 w-2 rounded-full transition-colors ${i === page ? "bg-white" : "bg-white/30"}`}
               />
@@ -130,7 +139,7 @@ export default function Services() {
 
           <button
             type="button"
-            onClick={() => setPage((p) => (p >= maxPage ? 0 : p + 1))}
+            onClick={() => goToPage(page >= maxPage ? 0 : page + 1)}
             aria-label="Próximo"
             className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-black shadow-lg transition-transform hover:scale-105"
           >

@@ -75,6 +75,7 @@ export default function Founders() {
                     src={founder.image}
                     alt={founder.name}
                     fill
+                    quality={90}
                     className="object-cover"
                     priority={index === 0}
                   />
@@ -107,7 +108,8 @@ export default function Founders() {
                   src={founder.image}
                   alt={founder.name}
                   fill
-                  className="object-contain"
+                  quality={90}
+                  className="object-cover"
                   priority={index === 0}
                 />
               ) : (

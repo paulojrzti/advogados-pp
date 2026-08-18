@@ -76,6 +76,7 @@ export default function NewsPage() {
                   src={FEATURED_ARTICLE.image}
                   alt=""
                   fill
+                  quality={90}
                   priority
                   sizes="(min-width: 1024px) 62vw, 100vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
@@ -122,9 +123,10 @@ export default function NewsPage() {
                         <div className="relative aspect-[16/10] overflow-hidden bg-neutral-100 sm:aspect-auto">
                           <Image
                             src={article.image}
-                            alt=""
-                            fill
-                            sizes="(min-width: 1280px) 30vw, (min-width: 640px) 45vw, 100vw"
+                          alt=""
+                          fill
+                          quality={90}
+                          sizes="(min-width: 1280px) 30vw, (min-width: 640px) 45vw, 100vw"
                             className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                           />
                         </div>
@@ -170,6 +172,7 @@ export default function NewsPage() {
                           src={article.image}
                           alt=""
                           fill
+                          quality={90}
                           sizes="9rem"
                           className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                         />

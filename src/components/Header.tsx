@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
 import Logo from "@/components/Logo";
-import { FacebookIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
+import { ArrowUpRightIcon, FacebookIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
 
 const NAV_LINKS = [
   { label: "INICIO", href: "/" },
@@ -129,7 +129,7 @@ export default function Header({ theme = "dark", logoSrc }: HeaderProps) {
                 }`}
               >
                 {link.label}
-                <span aria-hidden="true">↗</span>
+                <ArrowUpRightIcon className="h-4 w-4" />
               </a>
             ))}
           </div>

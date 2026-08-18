@@ -154,6 +154,7 @@ function HighlightCard({
               src={item.image}
               alt={item.imageAlt ?? ""}
               fill
+              quality={90}
               sizes="(min-width: 1024px) 17vw, (min-width: 640px) 33vw, 100vw"
               className={item.imageFit === "contain" ? "object-contain p-4" : "object-cover"}
             />
@@ -229,6 +230,7 @@ export default function Highlights() {
             src={destaque.image}
             alt=""
             fill
+            quality={90}
             className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-colors duration-500 group-hover:from-black/80" />

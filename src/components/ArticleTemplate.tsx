@@ -86,6 +86,7 @@ export default function ArticleTemplate({
             src={cover}
             alt={coverAlt}
             fill
+            quality={90}
             priority
             sizes="100vw"
             className="object-cover"
@@ -155,6 +156,7 @@ export default function ArticleTemplate({
                             src={section.figure.src}
                             alt={section.figure.alt}
                             fill
+                            quality={90}
                             sizes="(min-width: 1024px) 48rem, 100vw"
                             className="object-cover"
                           />
@@ -324,6 +326,7 @@ export default function ArticleTemplate({
                         src={article.image}
                         alt=""
                         fill
+                        quality={90}
                         sizes="(min-width: 1024px) 24rem, 100vw"
                         className="object-cover"
                       />

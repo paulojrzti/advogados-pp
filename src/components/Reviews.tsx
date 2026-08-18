@@ -92,7 +92,7 @@ export default function Reviews() {
       <div
         ref={carouselRef}
         aria-label="Avaliações de clientes"
-        className="mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="mt-5 flex snap-x snap-mandatory gap-4 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
         {REVIEWS.map((review, index) => {
           const isBlue = index % 2 !== 0;

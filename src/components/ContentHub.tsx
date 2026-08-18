@@ -64,6 +64,7 @@ export default function ContentHub() {
                 src={article.image}
                 alt=""
                 fill
+                quality={90}
                 sizes="(min-width: 640px) 11rem, 100vw"
                 className="object-cover"
               />
@@ -91,6 +92,7 @@ export default function ContentHub() {
             src="/images/article-acquisition-cover.png"
             alt=""
             fill
+            quality={90}
             sizes="(min-width: 1024px) 55vw, 100vw"
             className="object-cover"
           />

@@ -101,23 +101,37 @@ export default function ServicesList() {
                 />
               </button>
 
-              {isActive && (
-                <div className="mb-5 overflow-hidden bg-white">
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      sizes="100vw"
-                      className="object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
+              <div
+                aria-hidden={!isActive}
+                className={`grid transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isActive ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="min-h-0 overflow-hidden">
+                  <div
+                    className={`mb-5 overflow-hidden bg-white transition-[opacity,transform] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                      isActive ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0"
+                    }`}
+                  >
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        fill
+                        quality={90}
+                        sizes="100vw"
+                        className={`object-cover transition-transform duration-700 ease-out ${
+                          isActive ? "scale-100" : "scale-105"
+                        }`}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
+                    </div>
+                    <p className="font-canela p-5 text-xl leading-tight text-neutral-900">
+                      {service.description}
+                    </p>
                   </div>
-                  <p className="font-canela p-5 text-xl leading-tight text-neutral-900">
-                    {service.description}
-                  </p>
                 </div>
-              )}
+              </div>
             </div>
           );
         })}
@@ -162,6 +176,7 @@ export default function ServicesList() {
               src={service.image}
               alt={index === activeIndex ? service.title : ""}
               fill
+              quality={90}
               sizes="(min-width: 1024px) 48vw, 100vw"
               className={`object-cover transition-opacity duration-500 ${
                 index === activeIndex ? "opacity-100" : "opacity-0"
