@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   ArrowUpRightIcon,
   ChevronRightIcon,
@@ -39,13 +40,13 @@ export default function Footer() {
               Gostaria de estruturar a aquisição do seu escritório? Agende uma
               conversa com nosso time. Nossa metodologia é diferente.
             </p>
-            <a
-              href="mailto:contato@scalecompany.com.br?subject=Quero%20falar%20com%20a%20Scale"
+            <Link
+              href="/contato"
               className="mt-8 inline-flex items-center gap-3 rounded-none bg-[#3A43E3] px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#2f37c9]"
             >
               Enviar mensagem
               <ArrowUpRightIcon className="h-4 w-4" />
-            </a>
+            </Link>
           </div>
 
           <div>

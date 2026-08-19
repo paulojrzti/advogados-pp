@@ -38,7 +38,7 @@ const DESTAQUE_POOL: DestaqueItem[] = [
     headingLine2Lead: "e chega ao ",
     headingLine2Strong: "contrato.",
     linkLabel: "CONHEÇA NOSSOS RESULTADOS",
-    href: "#",
+    href: "/cases",
   },
 ];
 
@@ -61,7 +61,7 @@ const RECONHECIMENTO_POOL: CardItem[] = [
     title: "Performance validada pelo Google",
     text: "A Scale apresenta a credencial Google Ads Search Certified, ligada à especialização da equipe em campanhas de pesquisa e aquisição.",
     linkLabel: "CONHEÇA NOSSA OPERAÇÃO",
-    href: "#",
+    href: "/sobre",
     image: "/images/google-ads-badge.avif",
     imageAlt: "Credencial Google Ads Search Certified da Scale",
     imageFit: "contain",
@@ -74,7 +74,7 @@ const DEPOIMENTOS_POOL: CardItem[] = [
     label: "DEPOIMENTO",
     text: "Quem trabalha com a Scale conta melhor que a gente. Experiências e resultados compartilhados por escritórios que já passaram pela nossa operação.",
     linkLabel: "CONHEÇA NOSSA OPERAÇÃO",
-    href: "#",
+    href: "/sobre",
     image: "/images/client-testimonials-cover.png",
     imageAlt: "Conversa entre profissionais em uma reunião de trabalho",
   },

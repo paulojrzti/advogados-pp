@@ -4,6 +4,7 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ArrowUpRightIcon } from "@/components/icons";
+import NewsletterForm from "@/components/NewsletterForm";
 
 export const metadata: Metadata = {
   title: "Cases | Scale Company",
@@ -134,32 +135,17 @@ export default function CasesPage() {
                 Cases, aprendizados de campanha e bastidores de operações que ajudam escritórios a
                 crescer com mais previsibilidade.
               </p>
-              <form
-                action="mailto:contato@scalecompany.com.br?subject=Quero%20receber%20os%20cases%20da%20Scale"
-                method="post"
-                encType="text/plain"
-                className="mt-7 flex flex-col gap-3 sm:flex-row"
-              >
-                <label htmlFor="cases-email" className="sr-only">
-                  Seu melhor e-mail
-                </label>
-                <input
-                  id="cases-email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  placeholder="seuemail@escritorio.com.br"
-                  className="min-w-0 flex-1 border-b border-white/45 bg-transparent px-0 py-3 text-sm text-white outline-none placeholder:text-white/55 focus:border-white"
-                />
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center gap-3 bg-white px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#3A43E3] transition-opacity hover:opacity-85"
-                >
-                  Quero receber
-                  <ArrowUpRightIcon className="h-4 w-4" />
-                </button>
-              </form>
+              <NewsletterForm
+                endpoint="/api/lead-cases"
+                formClassName="mt-7 flex flex-col gap-3 sm:flex-row"
+                label="Seu melhor e-mail"
+                labelClassName="sr-only"
+                inputClassName="min-w-0 flex-1 border-b border-white/45 bg-transparent px-0 py-3 text-sm text-white outline-none placeholder:text-white/55 focus:border-white"
+                buttonClassName="inline-flex items-center justify-center gap-3 bg-white px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#3A43E3] transition-opacity hover:opacity-85"
+                buttonText="Quero receber"
+                successClassName="text-sm leading-relaxed text-white/85"
+                errorClassName="mt-3 text-xs leading-relaxed text-red-200"
+              />
             </div>
           </div>
         </section>

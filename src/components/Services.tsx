@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRightIcon, ChevronRightIcon } from "@/components/icons";
 
 type Service = {
@@ -86,13 +87,13 @@ export default function Services() {
           </h2>
         </div>
 
-        <a
-          href="#"
+        <Link
+          href="/contato"
           className="flex items-center gap-3 rounded-none bg-[#3A43E3] px-6 py-3 text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#2f37c9]"
         >
           Agendar diagnóstico
           <ArrowUpRightIcon className="h-4 w-4" />
-        </a>
+        </Link>
       </div>
 
       <div

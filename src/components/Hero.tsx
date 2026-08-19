@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Header from "@/components/Header";
 import { ArrowUpRightIcon } from "@/components/icons";
 
@@ -61,20 +62,20 @@ export default function Hero() {
               className="hero-anim flex shrink-0 flex-wrap items-center justify-center gap-4 lg:justify-start"
               style={{ "--hero-delay": "1.05s" } as CSSProperties}
             >
-              <a
-                href="#"
+              <Link
+                href="/servicos"
                 className="hidden items-center gap-3 rounded-none bg-[#3A43E3] px-5 py-[15.034px] text-xs font-semibold tracking-wider text-white transition-colors hover:bg-[#2f37c9] lg:flex"
               >
                 NOSSOS SERVIÇOS
                 <ArrowUpRightIcon className="h-4 w-4" />
-              </a>
+              </Link>
 
-              <a
-                href="#"
+              <Link
+                href="/contato"
                 className="btn-liquid-glass rounded-none text-xs font-semibold tracking-wider text-white"
               >
                 FALE CONOSCO
-              </a>
+              </Link>
             </div>
           </div>
         </div>

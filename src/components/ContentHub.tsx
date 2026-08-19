@@ -1,6 +1,7 @@
 import { ArrowUpRightIcon } from "@/components/icons";
 import Image from "next/image";
 import Link from "next/link";
+import NewsletterForm from "@/components/NewsletterForm";
 
 const FEATURED_ARTICLE = {
   category: "Estratégia",
@@ -132,35 +133,16 @@ export default function ContentHub() {
           </p>
         </div>
 
-        <form
-          action="mailto:contato@scalecompany.com.br?subject=Quero receber os cases mais recentes da Scale"
-          method="post"
-          encType="text/plain"
-          className="m-4 bg-white p-6 text-neutral-900 sm:m-6 sm:p-8"
-        >
-          <label htmlFor="content-email" className="font-canela text-lg">
-            Deixe seu melhor e-mail
-          </label>
-          <input
-            id="content-email"
-            name="email"
-            type="email"
-            autoComplete="email"
-            required
-            placeholder="seuemail@escritorio.com.br"
-            className="mt-5 w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-neutral-400 focus:border-[#3A43E3]"
-          />
-          <button
-            type="submit"
-            className="mt-6 inline-flex w-full items-center justify-between gap-3 bg-[#101317] px-5 py-4 text-left text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-black"
-          >
-            Quero receber os cases
-            <ArrowUpRightIcon className="h-4 w-4 shrink-0" />
-          </button>
-          <p className="mt-4 text-xs leading-relaxed text-neutral-500">
-            Sem spam. Apenas conteúdos e novos resultados da Scale.
-          </p>
-        </form>
+        <NewsletterForm
+          endpoint="/api/lead-cases"
+          formClassName="m-4 bg-white p-6 text-neutral-900 sm:m-6 sm:p-8"
+          label="Deixe seu melhor e-mail"
+          labelClassName="font-canela text-lg"
+          inputClassName="mt-5 w-full border-b border-neutral-300 bg-transparent px-0 py-3 text-sm outline-none transition-colors placeholder:text-neutral-400 focus:border-[#3A43E3]"
+          buttonClassName="mt-6 inline-flex w-full items-center justify-between gap-3 bg-[#101317] px-5 py-4 text-left text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-black"
+          buttonText="Quero receber os cases"
+          disclaimer="Sem spam. Apenas conteúdos e novos resultados da Scale."
+        />
       </div>
     </section>
   );
