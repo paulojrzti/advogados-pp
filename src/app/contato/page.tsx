@@ -3,11 +3,17 @@ import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { siteOgImage } from "@/lib/site-og";
+
+const title = "Fale com a Scale | Scale Company";
+const description =
+  "Agende um diagnóstico gratuito e descubra como estruturar a aquisição do seu escritório de advocacia.";
 
 export const metadata: Metadata = {
-  title: "Fale com a Scale | Scale Company",
-  description:
-    "Agende um diagnóstico gratuito e descubra como estruturar a aquisição do seu escritório de advocacia.",
+  title,
+  description,
+  alternates: { canonical: "/contato" },
+  openGraph: { title, description, url: "/contato", images: [siteOgImage] },
 };
 
 export default function ContatoPage() {

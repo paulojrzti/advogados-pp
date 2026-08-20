@@ -4,11 +4,17 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ArrowUpRightIcon } from "@/components/icons";
+import { siteOgImage } from "@/lib/site-og";
+
+const title = "Notícias | Scale Company";
+const description =
+  "Artigos da Scale sobre aquisição jurídica, tráfego pago, conversão e crescimento para escritórios.";
 
 export const metadata: Metadata = {
-  title: "Notícias | Scale Company",
-  description:
-    "Artigos da Scale sobre aquisição jurídica, tráfego pago, conversão e crescimento para escritórios.",
+  title,
+  description,
+  alternates: { canonical: "/noticias" },
+  openGraph: { title, description, url: "/noticias", images: [siteOgImage] },
 };
 
 const ARTICLES = [

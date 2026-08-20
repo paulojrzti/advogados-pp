@@ -4,11 +4,17 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Founders from "@/components/Founders";
 import Header from "@/components/Header";
+import { siteOgImage } from "@/lib/site-og";
+
+const title = "Sobre | Scale Company";
+const description =
+  "Conheça a Scale Company, seus sócios e o time que estrutura operações de crescimento para escritórios de advocacia.";
 
 export const metadata: Metadata = {
-  title: "Sobre | Scale Company",
-  description:
-    "Conheça a Scale Company, seus sócios e o time que estrutura operações de crescimento para escritórios de advocacia.",
+  title,
+  description,
+  alternates: { canonical: "/sobre" },
+  openGraph: { title, description, url: "/sobre", images: [siteOgImage] },
 };
 
 export default function AboutPage() {

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import { siteOgImage } from "@/lib/site-og";
 import "./globals.css";
 
 const inter = Inter({
@@ -24,9 +25,35 @@ const canelaDeck = localFont({
   ],
 });
 
+const siteTitle = "Scale Company | Marketing Jurídico que Gera Contratos";
+const siteDescription =
+  "Agência de marketing jurídico que transforma a presença digital de escritórios de advocacia em aquisição previsível: estratégia, tráfego pago, landing pages, design, conteúdo e CRM em uma única operação.";
+
 export const metadata: Metadata = {
-  title: "Site Institucional",
-  description: "Site institucional",
+  metadataBase: new URL("https://www.scalecompany.com.br"),
+  title: siteTitle,
+  description: siteDescription,
+  authors: [{ name: "Scale Company" }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: "/",
+    type: "website",
+    locale: "pt_BR",
+    siteName: "Scale Company",
+    images: [siteOgImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: [siteOgImage.url],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

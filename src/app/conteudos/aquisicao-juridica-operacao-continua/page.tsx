@@ -10,11 +10,22 @@ import {
   ClockIcon,
   MapPinIcon,
 } from "@/components/icons";
+import { siteOgImage } from "@/lib/site-og";
+
+const title = "A aquisição jurídica não pode depender apenas de indicação | Scale Company";
+const description =
+  "Entenda como estruturar uma operação contínua de aquisição para o seu escritório, com canal, processo e acompanhamento.";
 
 export const metadata: Metadata = {
-  title: "A aquisição jurídica não pode depender apenas de indicação | Scale Company",
-  description:
-    "Entenda como estruturar uma operação contínua de aquisição para o seu escritório, com canal, processo e acompanhamento.",
+  title,
+  description,
+  alternates: { canonical: "/conteudos/aquisicao-juridica-operacao-continua" },
+  openGraph: {
+    title,
+    description,
+    url: "/conteudos/aquisicao-juridica-operacao-continua",
+    images: [siteOgImage],
+  },
 };
 
 const ARTICLE_SECTIONS = [

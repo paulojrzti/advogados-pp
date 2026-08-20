@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import ArticleTemplate from "@/components/ArticleTemplate";
+import { siteOgImage } from "@/lib/site-og";
+
+const title = "Google Ads para advogados: da intenção de busca ao contrato | Scale Company";
+const description =
+  "O que priorizar em campanhas de pesquisa para atrair oportunidades qualificadas para o seu escritório.";
 
 export const metadata: Metadata = {
-  title: "Google Ads para advogados: da intenção de busca ao contrato | Scale Company",
-  description:
-    "O que priorizar em campanhas de pesquisa para atrair oportunidades qualificadas para o seu escritório.",
+  title,
+  description,
+  alternates: { canonical: "/conteudos/google-ads-para-advogados" },
+  openGraph: {
+    title,
+    description,
+    url: "/conteudos/google-ads-para-advogados",
+    images: [siteOgImage],
+  },
 };
 
 export default function GoogleAdsForLawyersArticle() {

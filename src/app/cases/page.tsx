@@ -5,11 +5,17 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import { ArrowUpRightIcon } from "@/components/icons";
 import NewsletterForm from "@/components/NewsletterForm";
+import { siteOgImage } from "@/lib/site-og";
+
+const title = "Cases | Scale Company";
+const description =
+  "Cases de aquisição jurídica, campanhas e resultados construídos pela Scale Company.";
 
 export const metadata: Metadata = {
-  title: "Cases | Scale Company",
-  description:
-    "Cases de aquisição jurídica, campanhas e resultados construídos pela Scale Company.",
+  title,
+  description,
+  alternates: { canonical: "/cases" },
+  openGraph: { title, description, url: "/cases", images: [siteOgImage] },
 };
 
 export default function CasesPage() {

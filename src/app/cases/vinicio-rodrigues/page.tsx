@@ -5,11 +5,17 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import NewsletterForm from "@/components/NewsletterForm";
 import ScrollReveal from "@/components/ScrollReveal";
+import { siteOgImage } from "@/lib/site-og";
+
+const title = "Case de Sucesso: Dr. Vinício Rodrigues | Scale Company";
+const description =
+  "Como a Scale gerou 5 contratos e mais de R$ 10.500 em honorários no primeiro mês para um escritório de Direito de Família.";
 
 export const metadata: Metadata = {
-  title: "Case de Sucesso: Dr. Vinício Rodrigues | Scale Company",
-  description:
-    "Como a Scale gerou 5 contratos e mais de R$ 10.500 em honorários no primeiro mês para um escritório de Direito de Família.",
+  title,
+  description,
+  alternates: { canonical: "/cases/vinicio-rodrigues" },
+  openGraph: { title, description, url: "/cases/vinicio-rodrigues", images: [siteOgImage] },
 };
 
 const CASE_DETAILS = [

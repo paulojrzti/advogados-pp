@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import ArticleTemplate from "@/components/ArticleTemplate";
+import { siteOgImage } from "@/lib/site-og";
+
+const title = "Landing pages jurídicas que conduzem a conversa certa | Scale Company";
+const description =
+  "Como criar uma landing page jurídica com mensagem, autoridade e um caminho simples até o atendimento.";
 
 export const metadata: Metadata = {
-  title: "Landing pages jurídicas que conduzem a conversa certa | Scale Company",
-  description:
-    "Como criar uma landing page jurídica com mensagem, autoridade e um caminho simples até o atendimento.",
+  title,
+  description,
+  alternates: { canonical: "/conteudos/landing-pages-juridicas" },
+  openGraph: {
+    title,
+    description,
+    url: "/conteudos/landing-pages-juridicas",
+    images: [siteOgImage],
+  },
 };
 
 export default function LegalLandingPagesArticle() {

@@ -9,11 +9,22 @@ import {
   CheckCircleIcon,
   ClockIcon,
 } from "@/components/icons";
+import { siteOgImage } from "@/lib/site-og";
+
+const title = "Como construir previsibilidade na aquisição do seu escritório | Scale Company";
+const description =
+  "Um guia prático para transformar aquisição jurídica em uma rotina de canais, atendimento e acompanhamento.";
 
 export const metadata: Metadata = {
-  title: "Como construir previsibilidade na aquisição do seu escritório | Scale Company",
-  description:
-    "Um guia prático para transformar aquisição jurídica em uma rotina de canais, atendimento e acompanhamento.",
+  title,
+  description,
+  alternates: { canonical: "/conteudos/previsibilidade-na-aquisicao-juridica" },
+  openGraph: {
+    title,
+    description,
+    url: "/conteudos/previsibilidade-na-aquisicao-juridica",
+    images: [siteOgImage],
+  },
 };
 
 const ARTICLE_SECTIONS = [

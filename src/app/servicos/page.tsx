@@ -4,11 +4,17 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ServicesList from "@/components/ServicesList";
+import { siteOgImage } from "@/lib/site-og";
+
+const title = "Serviços | Scale Company";
+const description =
+  "Estratégias de tráfego pago, landing pages, CRM, design e comercial para escritórios que querem crescer com previsibilidade.";
 
 export const metadata: Metadata = {
-  title: "Serviços | Scale Company",
-  description:
-    "Estratégias de tráfego pago, landing pages, CRM, design e comercial para escritórios que querem crescer com previsibilidade.",
+  title,
+  description,
+  alternates: { canonical: "/servicos" },
+  openGraph: { title, description, url: "/servicos", images: [siteOgImage] },
 };
 
 export default function ServicesPage() {
