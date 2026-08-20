@@ -30,7 +30,7 @@ const FOUNDERS: Founder[] = [
     name: "Leonardo Carmo",
     role: "Operações, Marketing & Tecnologia",
     description:
-      "Primeiro funcionário da Scale, acompanhou de perto cada fase de crescimento da empresa. Hoje, carrega uma visão rara de operação: sabe o que precisa acontecer para a estratégia sair do papel e ganhar escala.",
+      "Sócio, responsável pela área operacional. Hoje, carrega uma visão rara de operação: sabe o que precisa acontecer para a estratégia sair do papel e ganhar escala.",
     image: "/socios/leonardo-carmo.png",
   },
   {
