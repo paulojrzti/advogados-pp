@@ -11,6 +11,28 @@ function maskWhatsapp(value: string) {
   return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
 }
 
+// "YYYY-MM-DD" da live atual — o CRM usa isso pra agrupar/filtrar inscritos
+// por evento (Quadro Live). Atualizar junto com o resto do conteúdo
+// (badge de data, título, link do grupo do WhatsApp) sempre que essa
+// página for reaproveitada pra uma nova live.
+const EVENT_ID = "2026-08-31";
+
+// Mesmo nome/formato usado pelas LPs de tráfego (scale-advogados) e pelo
+// LeadFormModal do repo de origem scalecompany-marketing-juridico — os
+// acionadores de Evento personalizado já configurados no GTM escutam esse
+// nome.
+const LEAD_EVENT_NAME = "lead_submit_success";
+
+function pushLeadSubmitEvent(data: Record<string, unknown>) {
+  if (typeof window === "undefined") return;
+  const w = window as Window & { dataLayer?: Record<string, unknown>[] };
+  w.dataLayer = w.dataLayer || [];
+  w.dataLayer.push({
+    event: LEAD_EVENT_NAME,
+    ...data,
+  });
+}
+
 const CONFETTI: { left: number; delay: number; color: string; w: number; h: number; spin: number }[] = [
   { left:  4, delay:   0, color:"#FF3A24", w:8,  h:6,  spin: 1  },
   { left: 11, delay: 140, color:"#568CF7", w:6,  h:9,  spin:-1  },
@@ -89,12 +111,26 @@ export default function ScaleClassPage() {
           email: form.email.trim(),
           whatsapp: form.whatsapp.replace(/\D/g, ""),
           faturamento: form.faturamento,
+          evento: EVENT_ID,
           ...utms,
         }),
       });
       if (!res.ok) throw new Error("submit failed");
       setSubmitted(true);
       setShowModal(true);
+      pushLeadSubmitEvent({
+        nome: form.nome.trim(),
+        email: form.email.trim(),
+        telefone: form.whatsapp,
+        telefoneDigits: form.whatsapp.replace(/\D/g, ""),
+        faturamento: form.faturamento,
+        origem: "scale-class",
+        form_name: "scale_class",
+        pagina: "/scale-class",
+        evento: EVENT_ID,
+        criadoEm: new Date().toISOString(),
+        ...utms,
+      });
     } catch {
       setErrors({ submit: "Não conseguimos registrar sua inscrição. Tente novamente." });
     } finally {

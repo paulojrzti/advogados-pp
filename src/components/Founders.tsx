@@ -127,7 +127,7 @@ export default function Founders() {
           {FOUNDERS.map((founder, index) => (
             <div
               key={`${founder.id}-caption-${index}`}
-              className="w-1/4 py-8 pl-6 first:pl-0"
+              className="w-1/4 min-w-0 py-8 pl-6 first:pl-0"
             >
               <p className="font-canela text-xl text-neutral-900">{founder.name}</p>
               <p className="font-canela mt-1 text-xs font-semibold uppercase tracking-wider text-[#3A43E3]">

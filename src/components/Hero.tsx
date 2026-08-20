@@ -72,10 +72,20 @@ export default function Hero() {
 
               <Link
                 href="/contato"
-                className="btn-liquid-glass rounded-none text-xs font-semibold tracking-wider text-white"
+                className="flex items-center gap-3 rounded-none bg-[#3A43E3] px-5 py-[15.034px] text-xs font-semibold tracking-wider text-white transition-colors hover:bg-[#2f37c9] lg:hidden"
               >
                 FALE CONOSCO
+                <ArrowUpRightIcon className="h-4 w-4" />
               </Link>
+
+              <div className="hidden lg:flex">
+                <Link
+                  href="/contato"
+                  className="btn-liquid-glass rounded-none text-xs font-semibold tracking-wider text-white"
+                >
+                  FALE CONOSCO
+                </Link>
+              </div>
             </div>
           </div>
         </div>

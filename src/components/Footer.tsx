@@ -95,30 +95,23 @@ export default function Footer() {
         </div>
       </div>
 
-      <div>
-        <div className="relative z-10 flex -translate-y-6 flex-col items-center gap-4 px-[2%] pt-4 pb-0 text-center text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:text-left">
+      <div className="border-t border-white/10 px-6 py-8 sm:px-8 lg:px-[5%]">
+        <div className="flex flex-col items-center gap-4 text-center text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between sm:text-left">
           <span>© 2026 - Scale company</span>
-          <a
-            href="https://www.letsmarketing.com.br/politica-de-privacidade/"
-            className="transition-colors hover:text-white/80"
-          >
-            Política de privacidade
-          </a>
-          <a
-            href="https://www.letsmarketing.com.br/termos-de-uso/"
-            className="transition-colors hover:text-white/80"
-          >
-            Termos de uso
-          </a>
-          <span className="relative after:absolute after:-bottom-2 after:left-0 after:h-px after:w-[calc(100%+1.5rem)] after:bg-gradient-to-r after:from-[#3A43E3]/70 after:to-transparent after:content-['']">
-            Website by
-          </span>
-        </div>
-
-        <div aria-hidden="true" className="pointer-events-none mx-[2%] flex justify-center overflow-hidden">
-          <p className="inline-block origin-center whitespace-nowrap bg-gradient-to-b from-white via-white/85 to-white/0 bg-clip-text pt-[0.07em] font-sans text-[20.5vw] font-black leading-[0.8] tracking-[-0.065em] text-transparent [transform:scaleX(1.66)]">
-            SCALE
-          </p>
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 sm:justify-end">
+            <a
+              href="https://www.letsmarketing.com.br/politica-de-privacidade/"
+              className="transition-colors hover:text-white/80"
+            >
+              Política de privacidade
+            </a>
+            <a
+              href="https://www.letsmarketing.com.br/termos-de-uso/"
+              className="transition-colors hover:text-white/80"
+            >
+              Termos de uso
+            </a>
+          </div>
         </div>
       </div>
     </footer>

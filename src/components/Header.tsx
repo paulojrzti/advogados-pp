@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: "SOBRE", href: "/sobre" },
   { label: "NOTICIAS", href: "/noticias" },
   { label: "CASES", href: "/cases" },
+  { label: "CONTATO", href: "/contato" },
 ];
 
 const SOCIAL_LINKS = [
