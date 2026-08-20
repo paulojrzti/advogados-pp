@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
   ArrowUpRightIcon,
   ChevronRightIcon,
@@ -8,6 +7,7 @@ import {
   YouTubeIcon,
 } from "@/components/icons";
 import Logo from "@/components/Logo";
+import ContactTrigger from "@/components/ContactTrigger";
 
 const SOCIAL_LINKS = [
   { label: "Instagram", href: "https://www.instagram.com/scalecompany_/", Icon: InstagramIcon },
@@ -40,13 +40,10 @@ export default function Footer() {
               Gostaria de estruturar a aquisição do seu escritório? Agende uma
               conversa com nosso time. Nossa metodologia é diferente.
             </p>
-            <Link
-              href="/contato"
-              className="mt-8 inline-flex items-center gap-3 rounded-none bg-[#3A43E3] px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#2f37c9]"
-            >
+            <ContactTrigger className="mt-8 inline-flex items-center gap-3 rounded-none bg-[#3A43E3] px-6 py-3.5 text-xs font-semibold uppercase tracking-wider text-white transition-colors hover:bg-[#2f37c9]">
               Enviar mensagem
               <ArrowUpRightIcon className="h-4 w-4" />
-            </Link>
+            </ContactTrigger>
           </div>
 
           <div>

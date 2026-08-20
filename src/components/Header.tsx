@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
 import Logo from "@/components/Logo";
+import ContactTrigger from "@/components/ContactTrigger";
 import { ArrowUpRightIcon, FacebookIcon, InstagramIcon, LinkedInIcon } from "@/components/icons";
 
 const NAV_LINKS = [
@@ -11,7 +12,7 @@ const NAV_LINKS = [
   { label: "SOBRE", href: "/sobre" },
   { label: "NOTICIAS", href: "/noticias" },
   { label: "CASES", href: "/cases" },
-  { label: "CONTATO", href: "/contato" },
+  { label: "CONTATO", href: null },
 ];
 
 const SOCIAL_LINKS = [
@@ -52,19 +53,27 @@ export default function Header({ theme = "dark", logoSrc }: HeaderProps) {
         <Logo src={logoSrc ?? (isLight ? "/images/scale-logo-about.svg" : undefined)} />
 
         <nav className="hidden items-center gap-8 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className={`text-xs font-medium tracking-wider transition-colors ${
-                isLight
-                  ? "text-neutral-600 hover:text-neutral-950"
-                  : "text-white/80 hover:text-white"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const linkClassName = `text-xs font-medium tracking-wider transition-colors ${
+              isLight
+                ? "text-neutral-600 hover:text-neutral-950"
+                : "text-white/80 hover:text-white"
+            }`;
+
+            if (!link.href) {
+              return (
+                <ContactTrigger key={link.label} className={linkClassName}>
+                  {link.label}
+                </ContactTrigger>
+              );
+            }
+
+            return (
+              <a key={link.label} href={link.href} className={linkClassName}>
+                {link.label}
+              </a>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
@@ -118,21 +127,38 @@ export default function Header({ theme = "dark", logoSrc }: HeaderProps) {
       >
         <div className="px-6 pb-8 pt-3 sm:px-8">
           <div className={`border-t pt-4 ${isLight ? "border-neutral-200" : "border-white/15"}`}>
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className={`flex items-center justify-between py-4 text-sm font-medium tracking-wider transition-colors ${
-                  isLight
-                    ? "border-b border-neutral-200 text-neutral-900"
-                    : "border-b border-white/15 text-white"
-                }`}
-              >
-                {link.label}
-                <ArrowUpRightIcon className="h-4 w-4" />
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const itemClassName = `flex w-full items-center justify-between py-4 text-sm font-medium tracking-wider transition-colors ${
+                isLight
+                  ? "border-b border-neutral-200 text-neutral-900"
+                  : "border-b border-white/15 text-white"
+              }`;
+
+              if (!link.href) {
+                return (
+                  <ContactTrigger
+                    key={link.label}
+                    onClick={() => setMenuOpen(false)}
+                    className={itemClassName}
+                  >
+                    {link.label}
+                    <ArrowUpRightIcon className="h-4 w-4" />
+                  </ContactTrigger>
+                );
+              }
+
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setMenuOpen(false)}
+                  className={itemClassName}
+                >
+                  {link.label}
+                  <ArrowUpRightIcon className="h-4 w-4" />
+                </a>
+              );
+            })}
           </div>
 
           <div className="mt-6 flex items-center gap-4">

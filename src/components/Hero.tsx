@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
+import ContactTrigger from "@/components/ContactTrigger";
 import { ArrowUpRightIcon } from "@/components/icons";
 
 export default function Hero() {
@@ -70,21 +71,15 @@ export default function Hero() {
                 <ArrowUpRightIcon className="h-4 w-4" />
               </Link>
 
-              <Link
-                href="/contato"
-                className="flex items-center gap-3 rounded-none bg-[#3A43E3] px-5 py-[15.034px] text-xs font-semibold tracking-wider text-white transition-colors hover:bg-[#2f37c9] lg:hidden"
-              >
+              <ContactTrigger className="flex items-center gap-3 rounded-none bg-[#3A43E3] px-5 py-[15.034px] text-xs font-semibold tracking-wider text-white transition-colors hover:bg-[#2f37c9] lg:hidden">
                 FALE CONOSCO
                 <ArrowUpRightIcon className="h-4 w-4" />
-              </Link>
+              </ContactTrigger>
 
               <div className="hidden lg:flex">
-                <Link
-                  href="/contato"
-                  className="btn-liquid-glass rounded-none text-xs font-semibold tracking-wider text-white"
-                >
+                <ContactTrigger className="btn-liquid-glass rounded-none text-xs font-semibold tracking-wider text-white">
                   FALE CONOSCO
-                </Link>
+                </ContactTrigger>
               </div>
             </div>
           </div>
