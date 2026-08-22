@@ -51,24 +51,7 @@ export default function PredictableAcquisitionArticle() {
           />
           <div className="absolute inset-0 bg-black/70" />
 
-          <nav
-            aria-label="Navegação estrutural"
-            className="relative z-10 flex items-center gap-2 text-xs text-white/60"
-          >
-            <Link href="/" className="transition-colors hover:text-white">
-              Início
-            </Link>
-            <span aria-hidden="true">/</span>
-            <Link href="/#conteudos" className="transition-colors hover:text-white">
-              Conteúdos
-            </Link>
-            <span aria-hidden="true">/</span>
-            <span aria-current="page" className="truncate text-white/90">
-              Aquisição jurídica
-            </span>
-          </nav>
-
-          <div className="relative z-10 mx-auto mt-14 max-w-6xl lg:mt-20">
+          <div className="relative z-10 mx-auto max-w-6xl">
             <div aria-hidden="true" className="pointer-events-none absolute -right-4 -top-24 hidden select-none lg:block">
               <span className="font-canela text-[18rem] leading-none text-white/[0.05]">02</span>
             </div>

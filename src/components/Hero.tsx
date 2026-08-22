@@ -1,22 +1,20 @@
 import type { CSSProperties } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import Header from "@/components/Header";
 import ContactTrigger from "@/components/ContactTrigger";
+import ParallaxImage from "@/components/ParallaxImage";
 import { ArrowUpRightIcon } from "@/components/icons";
 
 export default function Hero() {
   return (
     <section className="relative flex min-h-[100svh] flex-col overflow-hidden bg-black lg:min-h-screen">
-      <div className="hero-bg-zoom absolute inset-0">
-        <Image
-          src="/images/hero-home-bg.png"
-          alt=""
-          fill
-          priority
-          className="object-cover"
-        />
-      </div>
+      <ParallaxImage
+        src="/images/hero-home-bg.png"
+        alt=""
+        priority
+        range={140}
+        wrapperClassName="hero-bg-zoom"
+      />
       <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
 
       <Header />

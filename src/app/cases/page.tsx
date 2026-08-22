@@ -36,17 +36,7 @@ export default function CasesPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/35" />
 
           <div className="relative z-10 mx-auto max-w-6xl">
-            <nav aria-label="Navegação estrutural" className="flex items-center gap-2 text-xs text-white/60">
-              <Link href="/" className="transition-colors hover:text-white">
-                Início
-              </Link>
-              <span aria-hidden="true">/</span>
-              <span aria-current="page" className="text-white/90">
-                Cases
-              </span>
-            </nav>
-
-            <div className="mt-14 max-w-4xl lg:mt-20">
+            <div className="max-w-4xl">
               <span className="font-canela text-xs font-bold uppercase tracking-wider text-[#588DFF]">
                 Cases Scale
               </span>

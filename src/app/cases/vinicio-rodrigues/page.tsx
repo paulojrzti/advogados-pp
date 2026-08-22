@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import NewsletterForm from "@/components/NewsletterForm";
@@ -67,21 +66,7 @@ export default function VinicioRodriguesCasePage() {
       <article>
         <section className="bg-black px-6 pb-12 pt-28 text-white sm:px-8 sm:pb-14 lg:px-[5%] lg:pb-16 lg:pt-32">
           <div>
-            <nav aria-label="Navegação estrutural" className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-white/60">
-              <Link href="/" className="transition-colors hover:text-white">
-                Início
-              </Link>
-              <span aria-hidden="true">/</span>
-              <Link href="/cases" className="transition-colors hover:text-white">
-                Cases
-              </Link>
-              <span aria-hidden="true">/</span>
-              <span aria-current="page" className="text-white/90">
-                Vinício Rodrigues
-              </span>
-            </nav>
-
-            <div className="mt-10 grid gap-10 lg:mt-12 lg:grid-cols-[1.45fr_0.55fr] lg:items-end">
+            <div className="grid gap-10 lg:grid-cols-[1.45fr_0.55fr] lg:items-end">
               <div className="max-w-4xl">
               <span className="font-canela text-xs font-bold uppercase tracking-wider text-[#588DFF]">
                 Estudo de caso · Direito de Família

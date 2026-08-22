@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import Footer from "@/components/Footer";
 import Founders from "@/components/Founders";
 import Header from "@/components/Header";
@@ -24,20 +23,7 @@ export default function AboutPage() {
 
       <article>
         <section className="bg-white px-6 pb-20 pt-28 sm:px-8 sm:pb-24 lg:px-[5%] lg:pb-32 lg:pt-32">
-          <nav
-            aria-label="Navegação estrutural"
-            className="flex items-center gap-2 text-xs text-neutral-500"
-          >
-            <Link href="/" className="transition-colors hover:text-neutral-950">
-              Início
-            </Link>
-            <span aria-hidden="true">/</span>
-            <span aria-current="page" className="text-neutral-900">
-              Sobre
-            </span>
-          </nav>
-
-          <div className="mx-auto mt-12 grid max-w-7xl gap-10 lg:mt-16 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:gap-20">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end lg:gap-20">
             <div className="pb-1">
               <span className="font-canela text-xs font-bold uppercase tracking-wider text-[#3A43E3]">
                 Sobre a Scale

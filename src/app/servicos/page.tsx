@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import ServicesList from "@/components/ServicesList";
@@ -35,17 +34,7 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-black/70" />
 
           <div className="relative z-10">
-            <nav aria-label="Navegação estrutural" className="flex items-center gap-2 text-xs text-white/60">
-              <Link href="/" className="transition-colors hover:text-white">
-                Início
-              </Link>
-              <span aria-hidden="true">/</span>
-              <span aria-current="page" className="text-white/90">
-                Serviços
-              </span>
-            </nav>
-
-            <div className="mx-auto mt-14 max-w-4xl text-center">
+            <div className="mx-auto max-w-4xl text-center">
               <span className="font-canela text-xs font-bold uppercase tracking-wider text-[#588DFF]">
                 Serviços Scale
               </span>

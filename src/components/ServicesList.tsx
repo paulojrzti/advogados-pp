@@ -2,20 +2,31 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ChevronRightIcon } from "@/components/icons";
+import Link from "next/link";
+import { ArrowUpRightIcon, ChevronRightIcon } from "@/components/icons";
 
-const SERVICES = [
+type Service = {
+  number: string;
+  title: string;
+  image: string;
+  description: string;
+  href?: string;
+};
+
+const SERVICES: Service[] = [
   {
     number: "01",
     title: "Tráfego pago",
     image: "/img-cards-services/trafego.png",
     description: "Campanhas de Google Ads e Meta Ads focadas em gerar oportunidades qualificadas.",
+    href: "/servicos/trafego-pago",
   },
   {
     number: "02",
     title: "Landing pages",
     image: "/img-cards-services/landpage.png",
     description: "Páginas que conduzem a atenção até uma conversa com o escritório.",
+    href: "/servicos/landing-pages",
   },
   {
     number: "03",
@@ -126,9 +137,20 @@ export default function ServicesList() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
                     </div>
-                    <p className="font-canela p-5 text-xl leading-tight text-neutral-900">
+                    <p className="font-canela p-5 pb-0 text-xl leading-tight text-neutral-900">
                       {service.description}
                     </p>
+                    {service.href ? (
+                      <Link
+                        href={service.href}
+                        className="mx-5 mb-5 mt-4 inline-flex w-fit items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#3A43E3]"
+                      >
+                        Ver serviço
+                        <ArrowUpRightIcon className="h-3.5 w-3.5" />
+                      </Link>
+                    ) : (
+                      <div className="pb-5" />
+                    )}
                   </div>
                 </div>
               </div>
@@ -191,6 +213,15 @@ export default function ServicesList() {
             <p className="font-canela mt-3 max-w-md text-2xl leading-tight sm:text-3xl">
               {activeService.description}
             </p>
+            {activeService.href ? (
+              <Link
+                href={activeService.href}
+                className="mt-5 inline-flex w-fit items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white transition-opacity hover:opacity-80"
+              >
+                Ver serviço
+                <ArrowUpRightIcon className="h-3.5 w-3.5" />
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>
